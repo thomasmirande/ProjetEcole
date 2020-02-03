@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 @Entity
 public class Adresse implements Serializable{
 	
@@ -17,6 +18,16 @@ public class Adresse implements Serializable{
 	private String rue;	
 	private String codePostal;	
 	private String ville;
+	
+	
+	/**
+	 * Association
+	 * 
+	 * Relation One Adresse To One Personne
+	 */
+	
+	@OneToOne(mappedBy="adresse")
+	private Personne personne;
 	
 	// Ctors 
 	
@@ -125,6 +136,19 @@ public class Adresse implements Serializable{
 	 */
 	public void setVille(String ville) {
 		this.ville = ville;
+	}
+
+	
+
+
+	public Personne getPersonne() {
+		return personne;
+	}
+
+
+
+	public void setPersonne(Personne personne) {
+		this.personne = personne;
 	}
 
 

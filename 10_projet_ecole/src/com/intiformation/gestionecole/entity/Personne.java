@@ -2,10 +2,13 @@ package com.intiformation.gestionecole.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +23,23 @@ public class Personne implements Serializable {
 	private String nom;
 	private String prenom;
 	private String email;
+	
+	
+	/**
+	 * Association
+	 * 
+	 * Relation bidirectionnelle
+	 * Une adresse est possédée par une personne 
+	 * Une personne possède 0 ou 1 adresse 
+	 * 
+	 * -> relation One Personne To One Adresse
+	 */
+	
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="ADRESSE_ID", referencedColumnName="idAdresse")
+	private Adresse adresse;
+	
+	
 	/*-------------------Ctors au mini un vide------------------------------*/
 	public Personne(String motDePasse, String nom, String prenom, String email) {
 		super();
@@ -87,8 +107,16 @@ public class Personne implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 
 
+	public Adresse getAdresse() {
+		return adresse;
+	}
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+	
 	@Override
 	public String toString() {
 		return "Personne [identifiant=" + identifiant + ", motDePasse=" + motDePasse + ", nom=" + nom + ", prenom="
