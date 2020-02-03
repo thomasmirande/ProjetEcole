@@ -7,47 +7,48 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import com.intiformation.gestionecole.dao.CoursDao;
+import com.intiformation.gestionecole.dao.EtudiantDaoImpl;
 import com.intiformation.gestionecole.entity.Cours;
 import com.intiformation.gestionecole.entity.Etudiant;
+import com.intiformation.gestionecole.entity.EtudiantCours;
 
 public class AppTestManyToMany {
 	public static void main(String[] args) {
-		//1. création de sessions
-		
-		Cours sessionArchitecte= new Cours("Architecte Logiciel", "03/02/2020", "1H", "cours3");
-		Cours sessionIngWeb= new Cours("Ingénieur de devéloppement web", "03/02/2020", "1H", "cours5");
-		
-		//2. création d'étudiant
-		
-		Etudiant etudiant1 = new Etudiant("mdp","dupond","Jaque","J.d@mail.com",true, "28/12/1995");
-		Etudiant etudiant2 = new Etudiant("mdp","Jean","Neymar","J.n@mail.com",true, "25/02/1994");
-
-		//3 collection de liste d'étudiants
-		
-		List<Etudiant> listEtudiants1 = new ArrayList<>();
-		listEtudiants1.add(etudiant1);
-		listEtudiants1.add(etudiant2);
-		
-		List<Etudiant> listEtudiants2 = new ArrayList<>();
-		listEtudiants2.add(etudiant1);
+		//1.création d'une session de formation
 		
 		
-		//4.ajout de la liste d'étudiant1 à la session1
+		Etudiant etudiant1 = new Etudiant("secret", "jean","david","a@mail.com", true, "ouais");
+		Cours moduleUML = new Cours("Conception Objet", "13/02/20","1h30","trop bien");
+		//2.création de modules de formation
 		
-		sessionArchitecte.setListeEtudiants(listEtudiants1);
+		EtudiantCours etcJavaSe = new EtudiantCours(3, "malade","1","1");
+		EtudiantCours etccour = new EtudiantCours(1, "malade","2","1");
 		
-		//5.ajout de la liste d'étudiant1 à la session2
+		CoursDao coursdao=new CoursDao();
+		EtudiantDaoImpl etudiantsDao = new EtudiantDaoImpl();
 		
-		sessionIngWeb.setListeEtudiants(listEtudiants2);
+		coursdao.add(moduleUML);
 		
-		//6.Gestion du manager
+			
+			
+		
+		//3.création de collection de  modules
+		List<EtudiantCours> listeModules1= new ArrayList<>();
+		listeModules1.add(moduleUML);
+		listeModules1.add(moduleJavaSe);
+		listeModules1.add(moduleFront);
+		
+		//4. ajout de la liste des modules session
+		sessionJava.setListeModules(listeModules1);
+		
 		//5. 
-				EntityManager em = Persistence.createEntityManagerFactory("10_projet_ecole").createEntityManager();
-				EntityTransaction tx = em.getTransaction();
-				tx.begin();
-				em.persist(sessionArchitecte);
-				em.persist(sessionIngWeb);
-				tx.commit();
-				em.close();
+		EntityManager em = Persistence.createEntityManagerFactory("10_projet_ecole").createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		em.persist(sessionJava);
+		tx.commit();
+		em.close();
 	}//end main
+
 }

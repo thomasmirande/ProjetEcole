@@ -3,11 +3,13 @@ package com.intiformation.gestionecole.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 
 
@@ -28,8 +30,9 @@ public class Etudiant implements Serializable{
 	/*-----------------------ASSOCIATION--------------------*/
 	/*------------------------------------------------------*/
 	
-	@ManyToMany(mappedBy="listeEtudiant")
-	private List<Cours> listeCours;
+	@OneToMany(mappedBy="etudiantcours", targetEntity=EtudiantCours.class, cascade=CascadeType.ALL)
+	private List<EtudiantCours> listeEtudiantCours;
+	
 	
 	/**
 	 * Relation Many Etudiant To Many Promotion
@@ -145,13 +148,16 @@ public class Etudiant implements Serializable{
 	
 
 
-	public List<Cours> getListeCours() {
-		return listeCours;
+	
+
+
+	public List<EtudiantCours> getListeEtudiantCours() {
+		return listeEtudiantCours;
 	}
 
 
-	public void setListeCours(List<Cours> listeCours) {
-		this.listeCours = listeCours;
+	public void setListeEtudiantCours(List<EtudiantCours> listeEtudiantCours) {
+		this.listeEtudiantCours = listeEtudiantCours;
 	}
 
 

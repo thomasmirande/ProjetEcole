@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 @Entity
 public class Cours implements Serializable{
 	@Id
@@ -38,14 +39,9 @@ public class Cours implements Serializable{
 	/*------------------------------------------------------*/
 	/*-----------------------ASSOCIATION--------------------*/
 	/*------------------------------------------------------*/
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="Etudiant_cour")
-	private List<Etudiant> listeEtudiant;
 	
-	@ManyToOne
-	@JoinColumn(name="MATIERE_ID", referencedColumnName="idMatiere")
-	private Matiere matiere;
-	
+	@OneToMany(mappedBy="etudiantcours", targetEntity=EtudiantCours.class, cascade=CascadeType.ALL)
+	private List<EtudiantCours> listeEtudiantCours;
 	
 	/**
 	 * Association : 
