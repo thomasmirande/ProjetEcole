@@ -4,8 +4,30 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head></h:head> 
+<h:head>
+	<title>Ajout Matière</title>
+</h:head> 
 <body> 
+
+	<h:form>
+		<h:panelGrid columns="2" border="1">
+			<f:facet name="header">
+				<h:outputText value="Formulaire d'ajout d'une nouvelle matière" />
+			</f:facet>
+			
+			<h:outputLabel value="Libellé" />
+			<h:inputText value="#{gestionMatiereBean.matiere.libelle}" />
+
+		</h:panelGrid>
+		
+		<f:facet name="footer">
+			<h:commandButton action="ajouterMatiere" value="Ajouter" actionListener="#{gestionMatiereBean.ajouterMatiere()}" />
+		</f:facet>
+	
+	
+	
+	
+	</h:form>
 
 </body> 
 </html>

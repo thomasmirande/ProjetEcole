@@ -35,9 +35,36 @@
     	<navigation-case>
     		<from-outcome>ajoutLivre</from-outcome>
     		<to-view-id>/cours.xhtml</to-view-id>
-    	
-    	
     	</navigation-case>
+    
+    
+    
+    </navigation-rule>
+    
+    
+    <!--  Règle de navigation pour matiere.xhtml -->
+    <navigation-rule>
+    	<from-view-id>/matiere.xhtml</from-view-id>
+    	
+    	<!--  1er cas de navigation : vers ajoutMatiere.xhtml -->
+    	<navigation-case>
+    		<from-outcome>addMatiere</from-outcome>
+    		<to-view-id>/ajoutMatiere.xhtml</to-view-id>
+    	</navigation-case>
+    
+    </navigation-rule>
+    
+    
+    <!--  Règle de navigation pour ajoutMatiere.xhtml -->
+    <navigation-rule>
+    	<from-view-id>/ajoutMatiere.xhtml</from-view-id>
+    	
+    	<!--  1er cas de navigation : vers matiere.xhtml -->
+    	<navigation-case>
+    		<from-outcome>ajouterMatiere</from-outcome>
+    		<to-view-id>/matiere.xhtml</to-view-id>
+    	</navigation-case>
+    
     
     
     

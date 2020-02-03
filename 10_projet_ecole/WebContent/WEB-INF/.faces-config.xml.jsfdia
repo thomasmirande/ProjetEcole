@@ -17,4 +17,22 @@
     PATH="/cours.xhtml" TARGET="rules:#cours.xhtml" TITLE="ajoutLivre" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#matiere.xhtml" PATH="/matiere.xhtml"
+  SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#matiere.xhtml:0" NAME="item"
+   PATH="/matiere.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="addMatiere::#ajoutMatiere.xhtml"
+    NAME="output" PATH="/ajoutMatiere.xhtml"
+    TARGET="rules:#ajoutMatiere.xhtml" TITLE="addMatiere" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#ajoutMatiere.xhtml"
+  PATH="/ajoutMatiere.xhtml" SHAPE="240,369,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#ajoutMatiere.xhtml:0" NAME="item"
+   PATH="/ajoutMatiere.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="ajouterMatiere::#matiere.xhtml"
+    NAME="output" PATH="/matiere.xhtml" TARGET="rules:#matiere.xhtml"
+    TITLE="ajouterMatiere" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

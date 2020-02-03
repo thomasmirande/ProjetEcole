@@ -38,6 +38,17 @@ public class GestionMatiereBean implements Serializable{
 				
 			}// end method
 		
+		
+		public void initialiserMatiere(ActionEvent event) {
+			Matiere matiereInit = new Matiere();
+			setMatiere(matiereInit);
+		}
+		
+		public void ajouterMatiere(ActionEvent event) {
+			matiereDao.add(matiere);
+		}
+		
+		
 		/**
 		 * Méthode invoquée au cic sur le bouton supprimer de la dataTable de matiere.xhtml
 		 * @param event
@@ -63,7 +74,7 @@ public class GestionMatiereBean implements Serializable{
 
 			}
 			
-		}// end supprimerCours
+		}// end supprimerMatiere
 
 	
 		// Getter / Setter
@@ -75,8 +86,14 @@ public class GestionMatiereBean implements Serializable{
 		public void setMatiere(Matiere matiere) {
 			this.matiere = matiere;
 		}
-		
-		
+
+		public Collection<Matiere> getListeMatiere() {
+			return listeMatiere;
+		}
+
+		public void setListeMatiere(Collection<Matiere> listeMatiere) {
+			this.listeMatiere = listeMatiere;
+		}
 		
 
 }// end class
