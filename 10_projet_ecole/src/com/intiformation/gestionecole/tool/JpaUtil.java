@@ -6,7 +6,7 @@ import javax.persistence.PersistenceException;
 
 public class JpaUtil {
 	private static EntityManager entityManager;
-	private static String puName = "10_2_tp_gestion_ecole";
+	private static String puName = "10_projet_ecole";
 	
 	/**
 	 * Recup une EntityManager

@@ -3,7 +3,6 @@ package com.intiformation.gestionecole.entity;
 import java.io.Serializable;
 
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -196,6 +195,8 @@ public class Cours implements Serializable{
 	public void setPromotion(Promotion promotion) {
 		this.promotion = promotion;
 	}
+	
+	
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

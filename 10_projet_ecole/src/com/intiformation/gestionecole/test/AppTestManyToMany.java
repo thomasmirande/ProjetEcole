@@ -42,7 +42,7 @@ public class AppTestManyToMany {
 		
 		//6.Gestion du manager
 		//5. 
-				EntityManager em = Persistence.createEntityManagerFactory("02_gestion_association_jpa").createEntityManager();
+				EntityManager em = Persistence.createEntityManagerFactory("10_projet_ecole").createEntityManager();
 				EntityTransaction tx = em.getTransaction();
 				tx.begin();
 				em.persist(sessionArchitecte);

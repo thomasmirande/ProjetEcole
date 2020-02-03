@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 @Entity
 public class Promotion implements Serializable{
@@ -28,6 +31,18 @@ public class Promotion implements Serializable{
 	 */
 	@OneToMany(mappedBy="promotion", targetEntity=Cours.class, cascade=CascadeType.ALL)
 	private List<Cours> listeCours;
+	
+	/**
+	 * Relation Many Promotion To Many Etudiant
+	 * 
+	 * Promotion = coté maitre 
+	 * 	-> nom de la table de jointure
+	 *  -> nom des FK
+	 */
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="promotion_assoc_etudiant", joinColumns=@JoinColumn(name="PROMOTION_ID"), inverseJoinColumns=@JoinColumn(name="ETUDIANT_ID"))
+	private List<Etudiant> listEtudiant;
+	
 
 	/**
 	 * 
@@ -96,6 +111,16 @@ public class Promotion implements Serializable{
 	 */
 	public void setListeCours(List<Cours> listeCours) {
 		this.listeCours = listeCours;
+	}
+	
+	
+
+	public List<Etudiant> getListEtudiant() {
+		return listEtudiant;
+	}
+
+	public void setListEtudiant(List<Etudiant> listEtudiant) {
+		this.listEtudiant = listEtudiant;
 	}
 
 	/* (non-Javadoc)

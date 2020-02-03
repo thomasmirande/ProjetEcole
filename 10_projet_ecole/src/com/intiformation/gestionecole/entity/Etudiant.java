@@ -30,6 +30,13 @@ public class Etudiant implements Serializable{
 	
 	@ManyToMany(mappedBy="listeEtudiant")
 	private List<Cours> listeCours;
+	
+	/**
+	 * Relation Many Etudiant To Many Promotion
+	 */
+	
+	
+	
 	/*-------------------Ctors au mini un vide------------------------------*/
 	public Etudiant(int identifiant, String motDePasse, String nom, String prenom, String email, boolean photo,
 			String dateDeNaissance) {
