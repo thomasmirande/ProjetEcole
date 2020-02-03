@@ -115,5 +115,15 @@ public class GestionCoursBean implements Serializable{
 		this.cours = cours;
 	}
 
+	public Collection<Cours> getListeCours() {
+		return listeCours;
+	}
+
+	public void setListeCours(Collection<Cours> listeCours) {
+		this.listeCours = listeCours;
+	}
+	
+	
+
 	
 }// end class

@@ -5,10 +5,7 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
     
-    
-    <!--  Configuration  de navigation -->
-    <!--  1. Règle de navigation pour index.xhtml -->
-
+  
 
 
 
