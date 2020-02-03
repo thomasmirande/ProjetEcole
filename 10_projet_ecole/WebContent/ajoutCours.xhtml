@@ -9,7 +9,39 @@
 </h:head> 
 <h:body> 
 
-	fffffff
+	<h:form>
+		
+		<h:panelGrid columns="2" border="1">
+		
+			<f:facet name="header">
+				<h:outputText value="Formulaire d'ajout d'un nouveau cours" />
+			</f:facet>
+			
+			<h:outputLabel value="Libellé" />
+			<h:inputText value="#{gestionCoursBean.cours.libelle}" />
+			
+			<h:outputLabel value="Date" />
+			<h:inputText value="#{gestionCoursBean.cours.date}" />
+			
+			<h:outputLabel value="Durée" />
+			<h:inputText value="#{gestionCoursBean.cours.duree}" />
+			
+			<h:outputLabel value="Description" />
+			<h:inputText value="#{gestionCoursBean.cours.description}" />
+			
+			<h:outputLabel value="Matière" />
+			<h:inputText value="#{gestionCoursBean.cours.matiere}" />
+			
+			<h:outputLabel value="Promotion" />
+			<h:inputText value="#{gestionCoursBean.cours.promotion}" />
+			
+			<f:facet name="footer">
+				<h:commandButton action="ajoutLivre" value="Ajouter" actionListener="#{gestionCoursBean.ajouterCours()}"/>
+			</f:facet>
+	
+		</h:panelGrid>
+
+	</h:form>
 	
 
 </h:body> 

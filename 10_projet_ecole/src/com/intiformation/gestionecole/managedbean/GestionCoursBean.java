@@ -75,12 +75,27 @@ public class GestionCoursBean implements Serializable{
 		
 	}// end supprimerCours
 	
-	public void modifierCours() {
+	public void modifierCours(ActionEvent event) {
 		
 	}// end modifierCours
 	
-	public void ajouterCours() {
+	/**
+	 * Méthode invoquée au clic sur le bouton 'ajouter Cours' de cours.xhtml pour préparer (instancier)
+	 * un nouvel objet cours qui va contenir les infos du nouveau cours récupérés de ajoutCours.xhtml
+	 */
+	public void initialiserCours() {
+		// 1. instanciation d'un nouvel objet cours 
+		Cours coursAdd = new Cours();
 		
+		//2. affectation de l'objet à l'a propriété cours du ManagedBean
+		setCours(coursAdd);
+	}// end initialiserCours
+	
+	/**
+	 * Méthode invoquée au clic du boutn 'ajouter' dans ajoutCours.xhtml
+	 */
+	public void ajouterCours(ActionEvent event) {
+		coursDao.add(cours);	
 	}// end ajouterCours
 
 	

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#cours.xhtml" PATH="/cours.xhtml"
+  SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#cours.xhtml:0" NAME="item"
+   PATH="/cours.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="addCours::#ajoutCours.xhtml" NAME="output"
+    PATH="/ajoutCours.xhtml" TARGET="rules:#ajoutCours.xhtml"
+    TITLE="addCours" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#ajoutCours.xhtml" PATH="/ajoutCours.xhtml"
+  SHAPE="240,145,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#ajoutCours.xhtml:0" NAME="item"
+   PATH="/ajoutCours.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="ajoutLivre::#cours.xhtml" NAME="output"
+    PATH="/cours.xhtml" TARGET="rules:#cours.xhtml" TITLE="ajoutLivre" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>
