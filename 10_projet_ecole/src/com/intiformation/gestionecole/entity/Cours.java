@@ -197,7 +197,18 @@ public class Cours implements Serializable{
 	}
 	
 	
+	
 
+	public List<Etudiant> getListeEtudiant() {
+		return listeEtudiant;
+	}
+
+	
+	public void setListeEtudiants(List<Etudiant> listeEtudiants) {
+		this.listeEtudiant = listeEtudiants;
+	}// Pour app Test Cours_Etudiants
+	
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -206,11 +217,6 @@ public class Cours implements Serializable{
 		return "Cours [idCours=" + idCours + ", libelle=" + libelle + ", date=" + date + ", duree=" + duree
 				+ ", description=" + description + "]";
 	}
-	public void setListeEtudiants(List<Etudiant> listeEtudiants) {
-		this.listeEtudiant = listeEtudiants;
-	}// Pour app Test Cours_Etudiants
-	
-	
 	
 	
 	

@@ -2,6 +2,7 @@ package com.intiformation.gestionecole.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,7 @@ public class Enseignant implements Serializable {
 	/*-------------------Props en private-----------------------------------*/
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@DiscriminatorValue("Discri")
 	private int identifiant;
 	private String motDePasse;
 	private String nom;

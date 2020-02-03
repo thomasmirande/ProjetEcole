@@ -34,6 +34,8 @@ public class Etudiant implements Serializable{
 	/**
 	 * Relation Many Etudiant To Many Promotion
 	 */
+	@ManyToMany(mappedBy="listEtudiant")
+	private List<Promotion> listePromo;
 	
 	
 	
@@ -138,6 +140,28 @@ public class Etudiant implements Serializable{
 
 	public void setDateDeNaissance(String dateDeNaissance) {
 		this.dateDeNaissance = dateDeNaissance;
+	}
+	
+	
+
+
+	public List<Cours> getListeCours() {
+		return listeCours;
+	}
+
+
+	public void setListeCours(List<Cours> listeCours) {
+		this.listeCours = listeCours;
+	}
+
+
+	public List<Promotion> getListePromo() {
+		return listePromo;
+	}
+
+
+	public void setListePromo(List<Promotion> listePromo) {
+		this.listePromo = listePromo;
 	}
 
 
