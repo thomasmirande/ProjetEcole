@@ -4,13 +4,16 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIParameter;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import com.intiformation.gestionecole.dao.MatiereDao;
 import com.intiformation.gestionecole.entity.Matiere;
-
+@ManagedBean(name="gestionMatiereBean")
+@SessionScoped
 public class GestionMatiereBean implements Serializable{
 	
 	// Prorpiétés 
@@ -61,6 +64,18 @@ public class GestionMatiereBean implements Serializable{
 			}
 			
 		}// end supprimerCours
+
+	
+		// Getter / Setter
+
+		public Matiere getMatiere() {
+			return matiere;
+		}
+
+		public void setMatiere(Matiere matiere) {
+			this.matiere = matiere;
+		}
+		
 		
 		
 
