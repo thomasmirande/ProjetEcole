@@ -4,12 +4,16 @@ import java.io.Serializable;
 
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 @Entity
 public class Cours implements Serializable{
@@ -31,6 +35,14 @@ public class Cours implements Serializable{
 	 *  -> Cours = coté * = coté porteur de la FK (ajout de JoinColumn)
 	 * 
 	 */
+	
+	/*------------------------------------------------------*/
+	/*-----------------------ASSOCIATION--------------------*/
+	/*------------------------------------------------------*/
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="Etudiant_cour")
+	private List<Etudiant> listeEtudiant;
+	
 	@ManyToOne
 	@JoinColumn(name="MATIERE_ID", referencedColumnName="idMatiere")
 	private Matiere matiere;
@@ -193,6 +205,9 @@ public class Cours implements Serializable{
 		return "Cours [idCours=" + idCours + ", libelle=" + libelle + ", date=" + date + ", duree=" + duree
 				+ ", description=" + description + "]";
 	}
+	public void setListeEtudiants(List<Etudiant> listeEtudiants) {
+		this.listeEtudiant = listeEtudiants;
+	}// Pour app Test Cours_Etudiants
 	
 	
 	

@@ -1,21 +1,8 @@
-package com.intiformation.gestionecole.entity;
+package com.intiformation.gestionecole.managedbean;
 
-import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-
-
-
-@Entity
-public class Etudiant implements Serializable{
+public class GestionEtudiantBean {
+	
 	/*-------------------Props en private-----------------------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int identifiant;
 	private String motDePasse;
 	private String nom;
@@ -23,16 +10,9 @@ public class Etudiant implements Serializable{
 	private String email;
 	private boolean photo;
 	private String dateDeNaissance;
-	
-	/*------------------------------------------------------*/
-	/*-----------------------ASSOCIATION--------------------*/
-	/*------------------------------------------------------*/
-	
-	@ManyToMany(mappedBy="listeEtudiant")
-	private List<Cours> listeCours;
 	/*-------------------Ctors au mini un vide------------------------------*/
-	public Etudiant(int identifiant, String motDePasse, String nom, String prenom, String email, boolean photo,
-			String dateDeNaissance) {
+	public GestionEtudiantBean(int identifiant, String motDePasse, String nom, String prenom, String email,
+			boolean photo, String dateDeNaissance) {
 		super();
 		this.identifiant = identifiant;
 		this.motDePasse = motDePasse;
@@ -41,10 +21,9 @@ public class Etudiant implements Serializable{
 		this.email = email;
 		this.photo = photo;
 		this.dateDeNaissance = dateDeNaissance;
-	}//Ctor Full
-
-
-	public Etudiant(String motDePasse, String nom, String prenom, String email, boolean photo, String dateDeNaissance) {
+	}//Ctor full
+	public GestionEtudiantBean(String motDePasse, String nom, String prenom, String email, boolean photo,
+			String dateDeNaissance) {
 		super();
 		this.motDePasse = motDePasse;
 		this.nom = nom;
@@ -52,94 +31,59 @@ public class Etudiant implements Serializable{
 		this.email = email;
 		this.photo = photo;
 		this.dateDeNaissance = dateDeNaissance;
-	}//Ctor Full Without
-
-
-	public Etudiant() {
+	}//Ctor Full without id
+	public GestionEtudiantBean() {
 		super();
-	}//Ctor Vide
-
-
-
-	/*-------------------Getters & Setter-----------------------------------*/
+	}//Ctor vide
+	/*-------------------Méthodes-------------------------------------------*/
 	
-
+	
+	
+	
+	
+	/*-------------------Guetter/Setter-------------------------------------------*/
 	public int getIdentifiant() {
 		return identifiant;
 	}
-
-
 	public void setIdentifiant(int identifiant) {
 		this.identifiant = identifiant;
 	}
-
-
 	public String getMotDePasse() {
 		return motDePasse;
 	}
-
-
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
 	}
-
-
 	public String getNom() {
 		return nom;
 	}
-
-
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
-
 	public String getPrenom() {
 		return prenom;
 	}
-
-
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-
-
 	public String getEmail() {
 		return email;
 	}
-
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
 	public boolean isPhoto() {
 		return photo;
 	}
-
-
 	public void setPhoto(boolean photo) {
 		this.photo = photo;
 	}
-
-
 	public String getDateDeNaissance() {
 		return dateDeNaissance;
 	}
-
-
 	public void setDateDeNaissance(String dateDeNaissance) {
 		this.dateDeNaissance = dateDeNaissance;
 	}
-
-
-	@Override
-	public String toString() {
-		return "Etudiant [identifiant=" + identifiant + ", motDePasse=" + motDePasse + ", nom=" + nom + ", prenom="
-				+ prenom + ", email=" + email + ", photo=" + photo + ", dateDeNaissance=" + dateDeNaissance + "]";
-	}//end TooString
-
 	
 	
 }

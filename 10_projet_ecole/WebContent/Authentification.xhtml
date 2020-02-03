@@ -3,16 +3,16 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
-      
-      
 
 <h:head>
-<title>Bienvenue dans la page Aide</title>
+
 </h:head> 
 <body> 
-<h1>Page Aide</h1>
-<h:graphicImage value="./templates/images/ecole.jpg"/>
-
-<h:commandButton  value="naviguerVersPage1" action="#{navigationBean.index)}"/>
+	<h:form>
+	Welcome a la page d'accueil
+	info :user
+	Login: <h:outputText value="#{navigationBean.log}" />
+	Password:<h:outputText value="#{navigationBean.pas}" />
+	</h:form>
 </body> 
 </html>
