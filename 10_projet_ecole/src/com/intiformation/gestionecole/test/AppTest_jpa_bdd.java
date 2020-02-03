@@ -2,6 +2,7 @@ package com.intiformation.gestionecole.test;
 
 import java.util.List;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -79,6 +80,8 @@ public class AppTest_jpa_bdd {
 		
 		coursDao.attribuerPromotion(cours1, promo1);
 		coursDao.attribuerPromotion(cours2, promo2);
+		
+		
 		
 		
 		

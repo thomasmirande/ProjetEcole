@@ -3,11 +3,13 @@ package com.intiformation.gestionecole.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+
 
 import com.intiformation.gestionecole.entity.Enseignant;
 import com.intiformation.gestionecole.entity.Etudiant;
@@ -48,27 +50,70 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 	
 
 	@Override
-	public Etudiant getById(int id) {
-		// TODO Auto-generated method stub
+	public Etudiant getById(int pidEtudiant) {
+		try {
+			
+			Etudiant etudiantRecherche = entityManager.find(Etudiant.class, pidEtudiant);
+			return etudiantRecherche;
+			
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+			System.out.println("L'affichage a échoué");
+		}
 		return null;
 	}
 
 	@Override
-	public boolean add(Etudiant t) {
-		// TODO Auto-generated method stub
-		return false;
+	public void add(Etudiant pEtudiant) {
+try {
+			
+			EntityTransaction tx = entityManager.getTransaction();
+			tx.begin();
+			entityManager.persist(pEtudiant);
+			tx.commit();
+			
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+			System.out.println("L'ajout a échoué");
+		}
 	}
 
 	@Override
-	public boolean update(Etudiant t, int id) {
-		// TODO Auto-generated method stub
-		return false;
+	public void update(Etudiant pEtudiant, int pidEtudiant) {
+		try {
+			EntityTransaction tx = entityManager.getTransaction();
+			tx.begin();
+			Etudiant etudiantModif = entityManager.find(Etudiant.class, pidEtudiant);
+			
+			etudiantModif.setMotDePasse(pEtudiant.getMotDePasse());
+			etudiantModif.setNom(pEtudiant.getNom());
+			etudiantModif.setPrenom(pEtudiant.getPrenom());
+			etudiantModif.setEmail(pEtudiant.getEmail());
+			etudiantModif.setDateDeNaissance(pEtudiant.getDateDeNaissance());
+			entityManager.merge(etudiantModif);
+			
+			tx.commit();
+			
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+			System.out.println("La modification a échoué");
+		}
 	}
 
 	@Override
-	public boolean delete(int id) {
-		// TODO Auto-generated method stub
-		return false;
+	public void delete(int pidEtudiant) {
+		try {
+			
+			EntityTransaction tx = entityManager.getTransaction();
+			tx.begin();
+			Etudiant etudiantSup = entityManager.find(Etudiant.class, pidEtudiant);
+			entityManager.remove(etudiantSup);
+			tx.commit();
+			
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+			System.out.println("La suppression a échoué");
+		}
 	}
 
 }

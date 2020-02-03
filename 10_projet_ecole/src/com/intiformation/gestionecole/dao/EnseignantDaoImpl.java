@@ -3,6 +3,7 @@ package com.intiformation.gestionecole.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -10,6 +11,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import com.intiformation.gestionecole.entity.Aide;
+
 import com.intiformation.gestionecole.entity.Enseignant;
 import com.intiformation.gestionecole.entity.Personne;
 import com.intiformation.gestionecole.tool.JpaUtil;
@@ -50,30 +52,80 @@ public class EnseignantDaoImpl implements IEnseignantDao {
 	}
 
 	@Override
-	public Enseignant getById(int id) {
-		// TODO Auto-generated method stub
+	public Enseignant getById(int pIdEnseignant) {
+		try {
+			
+			Enseignant enseignantRecherche = entityManager.find(Enseignant.class, pIdEnseignant);
+			return enseignantRecherche;
+			
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+			System.out.println("L'affichage a échoué");
+		}
 		return null;
 	}
-
-	@Override
-	public boolean add(Enseignant t) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean update(Enseignant t, int id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean delete(int id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 	
+
+	@Override
+	public void add(Enseignant pEnseignant) {
+		try {
+			
+			EntityTransaction tx = entityManager.getTransaction();
+			tx.begin();
+			entityManager.persist(pEnseignant);
+			tx.commit();
+			
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+			System.out.println("L'ajout a échoué");
+		}
+	
+	}
+
+	@Override
+	public void update(Enseignant pEnseignant, int pIdEnseignant) {
+		try {
+			EntityTransaction tx = entityManager.getTransaction();
+			tx.begin();
+			Enseignant enseignantModif = entityManager.find(Enseignant.class, pIdEnseignant);
+			
+			enseignantModif.setMotDePasse(pEnseignant.getMotDePasse());
+			enseignantModif.setNom(pEnseignant.getNom());
+			enseignantModif.setPrenom(pEnseignant.getPrenom());
+			enseignantModif.setEmail(pEnseignant.getEmail());
+			entityManager.merge(enseignantModif);
+			
+			tx.commit();
+			
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+			System.out.println("La modification a échoué");
+		}
+		
+	}
+	
+
+	@Override
+	public void delete(int pIdEnseignant) {
+		try {
+			
+			EntityTransaction tx = entityManager.getTransaction();
+			tx.begin();
+			Enseignant enseignantSup = entityManager.find(Enseignant.class, pIdEnseignant);
+			entityManager.remove(enseignantSup);
+			tx.commit();
+			
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+			System.out.println("La suppression a échoué");
+		}
+	}
+
+	/* 	ajouter des cours et exercices associés.				==>Add ok
+ 		afficher les cours par promotion, matière et date.		==>Get all ok
+		gérer les absences des élèves à leurs cours.			==>
+ 		afficher un récapitulatif des absences des étudiants.	==>
+ 		*/
 
 	
 

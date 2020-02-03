@@ -22,14 +22,14 @@ public interface IGestion<T> {
 	 * @param t : l'objet à ajouter 
 	 * @return
 	 */
-	public boolean add(T t);
+	public void add(T t);
 	
 	/**
 	 * Modif d'un objet dans la bdd
 	 * @param t : l'objet à modifier
 	 * @return
 	 */
-	public boolean update(T t, int id);
+	public void update(T t, int id);
 	
 	
 	
@@ -39,6 +39,6 @@ public interface IGestion<T> {
 	 * @param t
 	 * @return
 	 */
-	public boolean delete(int id);
+	public void delete(int id);
 
 }// end interface
