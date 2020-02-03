@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	
+	<persistence-unit name="10_projet_ecole">
+	
+		<!-- ===================================================================== -->
+		<!-- déclararation du fournisseur de persistance(provider) -->
+		<!-- ===================================================================== -->
+			<!-- provider: implémentation concrète de JPA(eclipselink) -->
+			<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+			
+		<!-- ===================================================================== -->
+		<!-- ======Déclaration des classes Entité================================= -->
+		<!-- ===================================================================== -->	
+			
+			<class>com.intiformation.gestionecole.entity.Aide</class>
+			<class>com.intiformation.gestionecole.entity.Personne</class>
+			<class>com.intiformation.gestionecole.entity.Enseignant</class>
+			<class>com.intiformation.gestionecole.entity.Administrateur</class>
+			<class>com.intiformation.gestionecole.entity.Etudiant</class>
+			
+	
+		<!-- ===================================================================== -->
+		<!-- ======Définition des porps JPA pour la configuration================= -->
+		<!-- ===================================================================== -->
+			
+			<properties>
+			
+		<!-- 1.Prpriétés pour définir les infos de connexion à la BDD -->
+				<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db_tp_ecole"/>
+				<property name="javax.persistence.jdbc.user" value="root"/>
+				<property name="javax.persistence.jdbc.password" value="root"/>
+				<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+				
+				<!-- 2.Propriété jpa pour définir la stratégie de génération des tables dans la BDD -->
+				<!-- 
+					Valeurs possibles:
+										->none: Pas de création ni de suppression
+										->create: le provider va créer les tables, pas de changement après déploiement
+										->drop-and-create: suppression et re création au déploiement
+										->drop: suppression au déploiement
+				 -->
+				<property name="javax.persistence.schema-generation.database.action" value="create"/>
+				
+				<!-- 
+				Propriété de eclipselink pour l'afficahge des requetes SQL dans la console 
+				-->
+				<!-- 
+					>Valeurs possibles:
+									-FINE		-CONFIG		-INFO
+									-OFF		-WARNING	-ALL
+				 -->
+				<property name="eclipselink.logging.level" value="FINE"/>
+				
+				
+			</properties>
+	</persistence-unit>
+</persistence>
