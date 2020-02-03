@@ -30,7 +30,7 @@ public class Etudiant implements Serializable{
 	/*-----------------------ASSOCIATION--------------------*/
 	/*------------------------------------------------------*/
 	
-	@OneToMany(mappedBy="etudiantcours", targetEntity=EtudiantCours.class, cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="etudiant2", targetEntity=EtudiantCours.class, cascade=CascadeType.ALL)
 	private List<EtudiantCours> listeEtudiantCours;
 	
 	

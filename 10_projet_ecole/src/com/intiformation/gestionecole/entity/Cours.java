@@ -40,7 +40,7 @@ public class Cours implements Serializable{
 	/*-----------------------ASSOCIATION--------------------*/
 	/*------------------------------------------------------*/
 	
-	@OneToMany(mappedBy="etudiantcours", targetEntity=EtudiantCours.class, cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="cours2", targetEntity=EtudiantCours.class, cascade=CascadeType.ALL)
 	private List<EtudiantCours> listeEtudiantCours;
 	
 	/**
@@ -167,22 +167,21 @@ public class Cours implements Serializable{
 	/**
 	 * @return the matiere
 	 */
-	public Matiere getMatiere() {
-		return matiere;
-	}
-
-	/**
-	 * @param matiere the matiere to set
-	 */
-	public void setMatiere(Matiere matiere) {
-		this.matiere = matiere;
-	}
+	
 
 	/**
 	 * @return the promotion
 	 */
 	public Promotion getPromotion() {
 		return promotion;
+	}
+
+	public List<EtudiantCours> getListeEtudiantCours() {
+		return listeEtudiantCours;
+	}
+
+	public void setListeEtudiantCours(List<EtudiantCours> listeEtudiantCours) {
+		this.listeEtudiantCours = listeEtudiantCours;
 	}
 
 	/**
@@ -195,19 +194,7 @@ public class Cours implements Serializable{
 	
 	
 
-	public List<Etudiant> getListeEtudiant() {
-		return listeEtudiant;
-	}
-
 	
-	public void setListeEtudiants(List<Etudiant> listeEtudiants) {
-		this.listeEtudiant = listeEtudiants;
-	}// Pour app Test Cours_Etudiants
-	
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "Cours [idCours=" + idCours + ", libelle=" + libelle + ", date=" + date + ", duree=" + duree

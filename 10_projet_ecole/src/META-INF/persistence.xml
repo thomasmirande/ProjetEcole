@@ -20,6 +20,7 @@
 			<class>com.intiformation.gestionecole.entity.Personne</class>
 			<class>com.intiformation.gestionecole.entity.Enseignant</class>
 			<class>com.intiformation.gestionecole.entity.Administrateur</class>
+			<class>com.intiformation.gestionecole.entity.EtudiantCours</class>
 			
 	
 		<!-- ===================================================================== -->
