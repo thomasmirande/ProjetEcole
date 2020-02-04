@@ -53,8 +53,8 @@ public class Cours implements Serializable{
 	 * Relation One Cours Many EtudiantCours
 	 */
 	
-	@OneToMany(mappedBy="cours", targetEntity=EtudiantCoursDao.class, cascade=CascadeType.ALL)
-	private List<EtudiantCoursDao> listeEtudiantCours;
+	@OneToMany(mappedBy="cours", targetEntity=EtudiantCours.class, cascade=CascadeType.ALL)
+	private List<EtudiantCours> listeEtudiantCours;
 	
 	/**
 	 * Association : 
@@ -221,13 +221,14 @@ public class Cours implements Serializable{
 		this.listeEtudiants = listeEtudiants;
 	}
 
-	public List<EtudiantCoursDao> getListeEtudiantCours() {
+	public List<EtudiantCours> getListeEtudiantCours() {
 		return listeEtudiantCours;
 	}
 
-	public void setListeEtudiantCours(List<EtudiantCoursDao> listeEtudiantCours) {
+	public void setListeEtudiantCours(List<EtudiantCours> listeEtudiantCours) {
 		this.listeEtudiantCours = listeEtudiantCours;
 	}
+
 	
 	
 	

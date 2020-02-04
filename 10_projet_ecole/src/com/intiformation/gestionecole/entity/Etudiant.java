@@ -39,9 +39,9 @@ public class Etudiant extends Personne implements Serializable {
 	 * Relation One Etudiant Many EtudiantCour
 	 * thomas
 	 */
-	@OneToMany(mappedBy="etudiant", targetEntity=EtudiantCoursDao.class,
+	@OneToMany(mappedBy="etudiant", targetEntity=EtudiantCours.class,
 	cascade=CascadeType.ALL)
-	private List<EtudiantCoursDao> listeEtudiantCours;
+	private List<EtudiantCours> listeEtudiantCours;
 
 	/**
 	 * Relation Many Etudiant To Many Promotion
@@ -113,11 +113,13 @@ public class Etudiant extends Personne implements Serializable {
 		this.listeCours = listeCours;
 	}
 
-	public List<EtudiantCoursDao> getListeEtudiantCours() {
+	
+
+	public List<EtudiantCours> getListeEtudiantCours() {
 		return listeEtudiantCours;
 	}
 
-	public void setListeEtudiantCours(List<EtudiantCoursDao> listeEtudiantCours) {
+	public void setListeEtudiantCours(List<EtudiantCours> listeEtudiantCours) {
 		this.listeEtudiantCours = listeEtudiantCours;
 	}
 
