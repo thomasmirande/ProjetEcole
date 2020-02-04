@@ -126,6 +126,8 @@ public class Promotion implements Serializable{
 	public void setListEtudiant(List<Etudiant> listEtudiant) {
 		this.listEtudiant = listEtudiant;
 	}
+	
+	
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

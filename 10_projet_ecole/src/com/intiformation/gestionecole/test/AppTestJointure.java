@@ -24,12 +24,7 @@ public class AppTestJointure {
 				
 				
 		
-						EntityTransaction tx = entity.getTransaction();
-						tx.begin();
-						em.persist(promotion1);
-						em.persist(enseignantJava);
-						tx.commit();
-						em.close();
+						
 
 	}//end main
 }

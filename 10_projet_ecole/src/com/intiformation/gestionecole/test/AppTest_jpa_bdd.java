@@ -3,17 +3,14 @@ package com.intiformation.gestionecole.test;
 import java.util.List;
 
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-
 import com.intiformation.gestionecole.dao.AideDao;
 import com.intiformation.gestionecole.dao.CoursDao;
+import com.intiformation.gestionecole.dao.EtudiantDaoImpl;
 import com.intiformation.gestionecole.dao.MatiereDao;
 import com.intiformation.gestionecole.dao.PromotionDao;
 import com.intiformation.gestionecole.entity.Aide;
 import com.intiformation.gestionecole.entity.Cours;
+import com.intiformation.gestionecole.entity.Etudiant;
 import com.intiformation.gestionecole.entity.Matiere;
 import com.intiformation.gestionecole.entity.Promotion;
 
@@ -58,6 +55,8 @@ public class AppTest_jpa_bdd {
 		CoursDao coursDao = new CoursDao();
 		MatiereDao matiereDao = new MatiereDao();
 		PromotionDao promoDao = new PromotionDao();
+		
+		
 		
 		Cours cours1 = new Cours("java les fondamentaux", "2020/12/12", "1h", "difficulté 0");
 		Cours cours2 = new Cours("histoire de l'art", "2020/05/14", "2h", "");

@@ -17,7 +17,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="Nom_Matière", discriminatorType=DiscriminatorType.STRING)
+@DiscriminatorColumn(name="Nom_Matiere", discriminatorType=DiscriminatorType.STRING)
 public class Matiere implements Serializable{
 
 	@Id

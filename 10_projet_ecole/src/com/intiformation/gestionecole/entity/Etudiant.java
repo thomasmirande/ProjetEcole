@@ -30,8 +30,10 @@ public class Etudiant implements Serializable{
 	/*-----------------------ASSOCIATION--------------------*/
 	/*------------------------------------------------------*/
 	
-	@OneToMany(mappedBy="etudiant2", targetEntity=EtudiantCours.class, cascade=CascadeType.ALL)
-	private List<EtudiantCours> listeEtudiantCours;
+//	@OneToMany(mappedBy="etudiant2", targetEntity=EtudiantCours.class, cascade=CascadeType.ALL)
+//	private List<EtudiantCours> listeEtudiantCours;
+	
+	
 	
 	
 	/**
@@ -150,15 +152,15 @@ public class Etudiant implements Serializable{
 
 	
 
-
-	public List<EtudiantCours> getListeEtudiantCours() {
-		return listeEtudiantCours;
-	}
-
-
-	public void setListeEtudiantCours(List<EtudiantCours> listeEtudiantCours) {
-		this.listeEtudiantCours = listeEtudiantCours;
-	}
+//
+//	public List<EtudiantCours> getListeEtudiantCours() {
+//		return listeEtudiantCours;
+//	}
+//
+//
+//	public void setListeEtudiantCours(List<EtudiantCours> listeEtudiantCours) {
+//		this.listeEtudiantCours = listeEtudiantCours;
+//	}
 
 
 	public List<Promotion> getListePromo() {

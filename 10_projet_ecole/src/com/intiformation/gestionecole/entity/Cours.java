@@ -35,13 +35,16 @@ public class Cours implements Serializable{
 	 *  -> Cours = coté * = coté porteur de la FK (ajout de JoinColumn)
 	 * 
 	 */
+	@ManyToOne
+	@JoinColumn(name="MATIERE_ID", referencedColumnName="idMatiere")
+	private Matiere matiere;
 	
 	/*------------------------------------------------------*/
 	/*-----------------------ASSOCIATION--------------------*/
 	/*------------------------------------------------------*/
 	
-	@OneToMany(mappedBy="cours2", targetEntity=EtudiantCours.class, cascade=CascadeType.ALL)
-	private List<EtudiantCours> listeEtudiantCours;
+//	@OneToMany(mappedBy="cours2", targetEntity=EtudiantCours.class, cascade=CascadeType.ALL)
+//	private List<EtudiantCours> listeEtudiantCours;
 	
 	/**
 	 * Association : 
@@ -162,12 +165,6 @@ public class Cours implements Serializable{
 		this.description = description;
 	}
 	
-	
-
-	/**
-	 * @return the matiere
-	 */
-	
 
 	/**
 	 * @return the promotion
@@ -176,13 +173,13 @@ public class Cours implements Serializable{
 		return promotion;
 	}
 
-	public List<EtudiantCours> getListeEtudiantCours() {
-		return listeEtudiantCours;
-	}
-
-	public void setListeEtudiantCours(List<EtudiantCours> listeEtudiantCours) {
-		this.listeEtudiantCours = listeEtudiantCours;
-	}
+//	public List<EtudiantCours> getListeEtudiantCours() {
+//		return listeEtudiantCours;
+//	}
+//
+//	public void setListeEtudiantCours(List<EtudiantCours> listeEtudiantCours) {
+//		this.listeEtudiantCours = listeEtudiantCours;
+//	}
 
 	/**
 	 * @param promotion the promotion to set
@@ -191,10 +188,15 @@ public class Cours implements Serializable{
 		this.promotion = promotion;
 	}
 	
-	
-	
 
-	
+	public Matiere getMatiere() {
+		return matiere;
+	}
+
+	public void setMatiere(Matiere matiere) {
+		this.matiere = matiere;
+	}
+
 	@Override
 	public String toString() {
 		return "Cours [idCours=" + idCours + ", libelle=" + libelle + ", date=" + date + ", duree=" + duree
