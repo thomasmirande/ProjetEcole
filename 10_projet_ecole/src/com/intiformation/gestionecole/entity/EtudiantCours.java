@@ -23,11 +23,11 @@ public class EtudiantCours implements Serializable {
 	/*-----------------------ASSOCIATION--------------------*/
 	/*------------------------------------------------------*/
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "COURS_ID", referencedColumnName = "idCours")
 	private Cours cours;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "ETUDIANT_ID", referencedColumnName = "identifiant")
 	private Etudiant etudiant;
 	
