@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="personnes")
+
 public class Personne implements Serializable {
 
 	/*-------------------Props en private-----------------------------------*/

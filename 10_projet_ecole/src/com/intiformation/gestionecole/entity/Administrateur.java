@@ -2,79 +2,38 @@ package com.intiformation.gestionecole.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-public class Administrateur implements Serializable {
-	
+@PrimaryKeyJoinColumn(name = "PERSONNE_ID", referencedColumnName = "identifiant")
+@DiscriminatorValue("A")
+public class Administrateur extends Personne implements Serializable {
+
 	/*-------------------Props en private-----------------------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int identifiant;
-	private String motDePasse;
-	private String nom;
-	private String prenom;
-	private String email;
 	/*-------------------Ctors au mini un vide------------------------------*/
-	public Administrateur(int identifiant, String motDePasse, String nom, String prenom, String email) {
-		super();
-		this.identifiant = identifiant;
-		this.motDePasse = motDePasse;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-	}//Ctor Full
-	public Administrateur(String motDePasse, String nom, String prenom, String email) {
-		super();
-		this.motDePasse = motDePasse;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-	}//Ctor Full without ID
 	public Administrateur() {
 		super();
-	}//Ctor Vide
+		// TODO Auto-generated constructor stub
+	}
+
+	public Administrateur(int identifiant, String motDePasse, String nom, String prenom, String email) {
+		super(identifiant, motDePasse, nom, prenom, email);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Administrateur(String motDePasse, String nom, String prenom, String email) {
+		super(motDePasse, nom, prenom, email);
+		// TODO Auto-generated constructor stub
+	}
 	/*-------------------Getters & Setter-----------------------------------*/
-	public int getIdentifiant() {
-		return identifiant;
-	}
-	public void setIdentifiant(int identifiant) {
-		this.identifiant = identifiant;
-	}
-	public String getMotDePasse() {
-		return motDePasse;
-	}
-	public void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
-	}
-	public String getNom() {
-		return nom;
-	}
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	public String getPrenom() {
-		return prenom;
-	}
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	@Override
-	public String toString() {
-		return "Administrateur [identifiant=" + identifiant + ", motDePasse=" + motDePasse + ", nom=" + nom
-				+ ", prenom=" + prenom + ", email=" + email + "]";
-	}//end Too String
-	
-	
-	
-	
+
 }
