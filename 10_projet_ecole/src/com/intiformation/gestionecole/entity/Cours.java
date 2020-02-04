@@ -15,6 +15,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.intiformation.gestionecole.dao.EtudiantCoursDao;
 @Entity
 public class Cours implements Serializable{
 	@Id
@@ -25,7 +27,12 @@ public class Cours implements Serializable{
 	private String date; 	
 	private String duree;	
 	private String description;
-	
+	/**
+	 * Association Many Cours to Many Etudiant
+	 */
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="ETUDIANT_COURS",joinColumns=@JoinColumn(name="COURS_ID"), inverseJoinColumns=@JoinColumn(name="ETUDIANT_ID")  )
+	private List<Etudiant> listeEtudiants;
 	/**
 	 * Association : 
 	 * 	-> un cours est porté par 1 matière
@@ -42,9 +49,12 @@ public class Cours implements Serializable{
 	/*------------------------------------------------------*/
 	/*-----------------------ASSOCIATION--------------------*/
 	/*------------------------------------------------------*/
+	/**
+	 * Relation One Cours Many EtudiantCours
+	 */
 	
-//	@OneToMany(mappedBy="cours2", targetEntity=EtudiantCours.class, cascade=CascadeType.ALL)
-//	private List<EtudiantCours> listeEtudiantCours;
+	@OneToMany(mappedBy="cours", targetEntity=EtudiantCoursDao.class, cascade=CascadeType.ALL)
+	private List<EtudiantCoursDao> listeEtudiantCours;
 	
 	/**
 	 * Association : 
@@ -201,6 +211,22 @@ public class Cours implements Serializable{
 	public String toString() {
 		return "Cours [idCours=" + idCours + ", libelle=" + libelle + ", date=" + date + ", duree=" + duree
 				+ ", description=" + description + "]";
+	}
+
+	public List<Etudiant> getListeEtudiants() {
+		return listeEtudiants;
+	}
+
+	public void setListeEtudiants(List<Etudiant> listeEtudiants) {
+		this.listeEtudiants = listeEtudiants;
+	}
+
+	public List<EtudiantCoursDao> getListeEtudiantCours() {
+		return listeEtudiantCours;
+	}
+
+	public void setListeEtudiantCours(List<EtudiantCoursDao> listeEtudiantCours) {
+		this.listeEtudiantCours = listeEtudiantCours;
 	}
 	
 	

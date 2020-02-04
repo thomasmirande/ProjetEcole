@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+import com.intiformation.gestionecole.dao.EtudiantCoursDao;
+
 @Entity
 @PrimaryKeyJoinColumn(name = "PERSONNE_ID", referencedColumnName = "idPersonne")
 @DiscriminatorValue("Etudiant")
@@ -25,16 +27,27 @@ public class Etudiant extends Personne implements Serializable {
 	/*------------------------------------------------------*/
 	/*-----------------------ASSOCIATION--------------------*/
 	/*------------------------------------------------------*/
-
-	// @OneToMany(mappedBy="etudiant2", targetEntity=EtudiantCours.class,
-	// cascade=CascadeType.ALL)
-	// private List<EtudiantCours> listeEtudiantCours;
+	
+	/**
+	 * Relation Many Etudiant to Many Cours
+	 */
+	@ManyToMany(mappedBy="listeEtudiant")
+	private List<Cours> listeCours;
+	
+	
+	/**
+	 * Relation One Etudiant Many EtudiantCour
+	 * thomas
+	 */
+	@OneToMany(mappedBy="etudiant", targetEntity=EtudiantCoursDao.class,
+	cascade=CascadeType.ALL)
+	private List<EtudiantCoursDao> listeEtudiantCours;
 
 	/**
 	 * Relation Many Etudiant To Many Promotion
 	 */
 	@ManyToMany(mappedBy = "listEtudiant")
-	private List<Promotion> listePromo;
+	private List<Promotion> listePromos;
 
 	/*-------------------Ctors au mini un vide------------------------------*/
 
@@ -85,11 +98,35 @@ public class Etudiant extends Personne implements Serializable {
 	// }
 
 	public List<Promotion> getListePromo() {
-		return listePromo;
+		return listePromos;
 	}
 
 	public void setListePromo(List<Promotion> listePromo) {
-		this.listePromo = listePromo;
+		this.listePromos = listePromos;
+	}
+
+	public List<Cours> getListeCours() {
+		return listeCours;
+	}
+
+	public void setListeCours(List<Cours> listeCours) {
+		this.listeCours = listeCours;
+	}
+
+	public List<EtudiantCoursDao> getListeEtudiantCours() {
+		return listeEtudiantCours;
+	}
+
+	public void setListeEtudiantCours(List<EtudiantCoursDao> listeEtudiantCours) {
+		this.listeEtudiantCours = listeEtudiantCours;
+	}
+
+	public List<Promotion> getListePromos() {
+		return listePromos;
+	}
+
+	public void setListePromos(List<Promotion> listePromos) {
+		this.listePromos = listePromos;
 	}
 
 }
