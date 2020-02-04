@@ -31,6 +31,10 @@ public class Enseignant extends Personne implements Serializable {
 		super(motDePasse, nom, prenom, email);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Enseignant(String motDePasse, String email) {
+		super(motDePasse, email);
+	}
 
 	/*-------------------Getters & Setter-----------------------------------*/
 

@@ -121,6 +121,11 @@ public class EnseignantDaoImpl implements IEnseignantDao {
 		}
 	}
 
+	@Override
+	public boolean isExist(String pLogin, String pMotDePasse) {
+		Enseignant enseignantLog = new Enseignant(motDePasse, nom, prenom, email)
+	}
+
 	/* 	ajouter des cours et exercices associés.				==>Add ok
  		afficher les cours par promotion, matière et date.		==>Get all ok
 		gérer les absences des élèves à leurs cours.			==>

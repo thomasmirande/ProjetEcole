@@ -42,14 +42,12 @@ public class Personne implements Serializable {
 	
 	/*-------------------Ctors au mini un vide------------------------------*/
 	public Personne(String motDePasse, String nom, String prenom, String email) {
-		super();
 		this.motDePasse = motDePasse;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
 	}// Ctor Full without ID
 	public Personne(int identifiant, String motDePasse, String nom, String prenom, String email) {
-		super();
 		this.identifiant = identifiant;
 		this.motDePasse = motDePasse;
 		this.nom = nom;
@@ -59,6 +57,13 @@ public class Personne implements Serializable {
 	public Personne() {
 		super();
 	}//Ctor vide	
+	
+	
+	public Personne(String motDePasse, String email) {
+		this.motDePasse = motDePasse;
+		this.email = email;
+	}
+	
 	/*-------------------Getters & Setter-----------------------------------*/	
 	public int getIdentifiant() {
 		return identifiant;
