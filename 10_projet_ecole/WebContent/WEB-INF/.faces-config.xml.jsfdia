@@ -13,8 +13,8 @@
   SHAPE="240,145,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#ajoutCours.xhtml:0" NAME="item"
    PATH="/ajoutCours.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="ajoutLivre::#cours.xhtml" NAME="output"
-    PATH="/cours.xhtml" TARGET="rules:#cours.xhtml" TITLE="ajoutLivre" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ajoutCours::#cours.xhtml" NAME="output"
+    PATH="/cours.xhtml" TARGET="rules:#cours.xhtml" TITLE="ajoutCours" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#matiere.xhtml" PATH="/matiere.xhtml"
@@ -33,6 +33,24 @@
    <PROCESS-ITEM-OUTPUT ID="ajouterMatiere::#matiere.xhtml"
     NAME="output" PATH="/matiere.xhtml" TARGET="rules:#matiere.xhtml"
     TITLE="ajouterMatiere" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#promotion.xhtml" PATH="/promotion.xhtml"
+  SHAPE="240,481,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#promotion.xhtml:0" NAME="item"
+   PATH="/promotion.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="ajoutPromo::#ajoutPromo.xhtml" NAME="output"
+    PATH="/ajoutPromo.xhtml" TARGET="rules:#ajoutPromo.xhtml"
+    TITLE="ajoutPromo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#ajoutPromo.xhtml" PATH="/ajoutPromo.xhtml"
+  SHAPE="32,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#ajoutPromo.xhtml:0" NAME="item"
+   PATH="/ajoutPromo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="addPromo::#promotion.xhtml" NAME="output"
+    PATH="/promotion.xhtml" TARGET="rules:#promotion.xhtml"
+    TITLE="addPromo" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
 </PROCESS>

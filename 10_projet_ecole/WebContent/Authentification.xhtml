@@ -5,14 +5,32 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head>
-
+	<title>Authentification</title>
 </h:head> 
-<body> 
+<h:body> 
 	<h:form>
-	Welcome a la page d'accueil
-	info :user
-	Login: <h:outputText value="#{navigationBean.log}" />
-	Password:<h:outputText value="#{navigationBean.pas}" />
+		<h:panelGrid columns="3" cellpadding="1" cellspacing="2">
+			<f:facet name="header">
+				<h:outputText value="Formulaire de connexion" />
+			</f:facet>
+			
+			<h:outputLabel value="Identifiant : " />
+			<h:inputText id="userId" value="#{navigationBean.log}" />
+			<h:message for="userId" styleClass="error"/>
+			
+			<h:outputLabel value="Mot de passe : " />
+			<h:inputText id="userMdp" value="#{navigationBean.pas}" />
+			<h:message for="userMdp" styleClass="error" />
+			
+			<f:facet name="footer">
+				<h:commandButton action="" value="Se connecter" />
+			</f:facet>
+		
+		
+		
+		</h:panelGrid>
+	
+
 	</h:form>
-</body> 
+</h:body> 
 </html>

@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import com.intiformation.gestionecole.dao.PromotionDao;
+import com.intiformation.gestionecole.entity.Matiere;
 import com.intiformation.gestionecole.entity.Promotion;
 @ManagedBean(name="gestionPromotionBean")
 @SessionScoped
@@ -57,6 +58,15 @@ public class GestionPromotionBean implements Serializable{
 
 		}
 		
+	}
+	
+	public void initialiserPromo(ActionEvent event) {
+		Promotion promoInit = new Promotion();
+		setPromotion(promoInit);
+	}
+	
+	public void ajouterPromo(ActionEvent event) {
+		promoDao.add(promotion);
 	}
 	
 	// Getter / Setter

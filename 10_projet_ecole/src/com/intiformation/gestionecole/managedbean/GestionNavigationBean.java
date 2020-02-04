@@ -13,6 +13,9 @@ public class GestionNavigationBean implements Serializable {
 	private String log;
 	private String pas;
 	
+	// Dao
+	private 
+	
 	/*-------------------Ctors au mini un vide------------------------------*/
 	public GestionNavigationBean() {
 		super();
