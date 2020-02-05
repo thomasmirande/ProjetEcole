@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-@Entity
+@Entity(name="enseignant")
 @PrimaryKeyJoinColumn(name = "PERSONNE_ID", referencedColumnName = "identifiant")
 @DiscriminatorValue("Ens")
 public class Enseignant extends Personne implements Serializable {

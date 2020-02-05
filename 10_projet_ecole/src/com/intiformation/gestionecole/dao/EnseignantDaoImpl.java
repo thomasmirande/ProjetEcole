@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -123,8 +124,25 @@ public class EnseignantDaoImpl implements IEnseignantDao {
 
 	@Override
 	public boolean isExist(String pLogin, String pMotDePasse) {
-		Enseignant enseignantLog = new Enseignant(motDePasse, nom, prenom, email)
-	}
+		
+		try {
+			
+			String requeteCount = "SELECT COUNT(e.identifiant) FROM enseignant e WHERE e.email = :pEnseignantLogin AND e.motDePasse = :pMotDePasse";
+			Query countQuery = entityManager.createQuery(requeteCount);
+			countQuery.setParameter("pEnseignantLogin", pLogin);
+			countQuery.setParameter("pMotDePasse", pMotDePasse);
+			
+			Long nombreEnseignant = (Long) countQuery.getSingleResult();
+			
+			return(nombreEnseignant ==1)?true:false;
+			
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+			
+		}
+		return false;
+		
+	}// end IsExist
 
 	/* 	ajouter des cours et exercices associés.				==>Add ok
  		afficher les cours par promotion, matière et date.		==>Get all ok
