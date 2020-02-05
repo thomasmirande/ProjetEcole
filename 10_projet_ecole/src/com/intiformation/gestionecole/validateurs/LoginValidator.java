@@ -18,7 +18,7 @@ public class LoginValidator implements Validator {
 				 String saisie = (String) valeurSaisie;
 				
 				//2.implémentation de la logique de validation
-				if (!saisie.isEmpty()) {
+				if (saisie.isEmpty()) {
 					//-->Saisie n'est pas vide
 					
 				}else {
