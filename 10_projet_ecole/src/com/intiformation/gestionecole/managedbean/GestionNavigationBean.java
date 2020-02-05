@@ -10,8 +10,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.servlet.http.HttpSession;
 
-import org.apache.geronimo.mail.util.SessionUtil;
-
 import com.intiformation.gestionecole.dao.EnseignantDaoImpl;
 import com.intiformation.gestionecole.entity.Enseignant;
 import com.intiformation.gestionecole.tool.SessionUser;
@@ -65,6 +63,18 @@ public class GestionNavigationBean implements Serializable {
 			return "authentification.xhtml";
 		}// end else
 	}// end connecterEnseignant
+	
+	
+	public String deconnecterEnseignant() {
+		// 1. Recup de la session
+		HttpSession session = SessionUser.getUtilisateurSession();
+		
+		// 2. Deconnexion
+		session.invalidate();
+		
+		// 3. Redirection
+		return "authentification.xhtml";
+	}
 	
 	
 	
