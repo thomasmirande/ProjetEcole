@@ -21,6 +21,9 @@
 			<class>com.intiformation.gestionecole.entity.Enseignant</class>
 			<class>com.intiformation.gestionecole.entity.Administrateur</class>
 			<class>com.intiformation.gestionecole.entity.EtudiantCours</class>
+			<class>com.intiformation.gestionecole.entity.Cours</class>
+			<class>com.intiformation.gestionecole.entity.Enseigne</class>
+			<class>com.intiformation.gestionecole.entity.Etudiant</class>
 			
 	
 		<!-- ===================================================================== -->

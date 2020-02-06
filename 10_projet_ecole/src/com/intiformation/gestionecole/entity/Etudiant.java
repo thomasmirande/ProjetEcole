@@ -31,7 +31,7 @@ public class Etudiant extends Personne implements Serializable {
 	/**
 	 * Relation Many Etudiant to Many Cours
 	 */
-	@ManyToMany(mappedBy="listeEtudiant")
+	@ManyToMany(mappedBy="listeEtudiants")
 	private List<Cours> listeCours;
 	
 	
@@ -39,8 +39,7 @@ public class Etudiant extends Personne implements Serializable {
 	 * Relation One Etudiant Many EtudiantCour
 	 * thomas
 	 */
-	@OneToMany(mappedBy="etudiant", targetEntity=EtudiantCours.class,
-	cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="etudiant", targetEntity=EtudiantCours.class, cascade=CascadeType.ALL)
 	private List<EtudiantCours> listeEtudiantCours;
 
 	/**
