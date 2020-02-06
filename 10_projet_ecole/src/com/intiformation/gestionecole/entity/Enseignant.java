@@ -1,12 +1,15 @@
 package com.intiformation.gestionecole.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity(name="enseignant")
@@ -15,21 +18,27 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class Enseignant extends Personne implements Serializable {
 
 	/*-------------------Props en private-----------------------------------*/
-
+	
+	
+	
+	/*---------------------------------------ASSOCIATION--------------------*/
+	@OneToMany(mappedBy="enseignant", targetEntity=Enseigne.class, cascade=CascadeType.ALL)
+	private List<Enseigne> listeEnseigne;
+	
 	/*-------------------Ctors au mini un vide------------------------------*/
 	public Enseignant() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Enseignant(int identifiant, String motDePasse, String nom, String prenom, String email) {
 		super(identifiant, motDePasse, nom, prenom, email);
-		// TODO Auto-generated constructor stub
+	
 	}
 
 	public Enseignant(String motDePasse, String nom, String prenom, String email) {
 		super(motDePasse, nom, prenom, email);
-		// TODO Auto-generated constructor stub
+	
 	}
 	
 	public Enseignant(String motDePasse, String email) {

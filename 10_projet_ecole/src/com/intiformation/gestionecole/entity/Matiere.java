@@ -39,8 +39,9 @@ public class Matiere implements Serializable{
 	private List<Cours> listeCours;
 	
 	/**
-	 * Relation Many Matiere To Many Enseigne
+	 * Relation One Matiere To Many Enseigne
 	 */
+	@OneToMany(mappedBy="matiere", targetEntity=Enseigne.class, cascade=CascadeType.ALL)
 	private List<Enseigne> listeEnseigne;
 	
 
