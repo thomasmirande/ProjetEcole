@@ -47,6 +47,15 @@ public class Promotion implements Serializable{
 	@JoinTable(name="promotion_assoc_etudiant", joinColumns=@JoinColumn(name="PROMOTION_ID"), inverseJoinColumns=@JoinColumn(name="ETUDIANT_ID"))
 	private List<Etudiant> listEtudiant;
 	
+	
+	/**
+	 * Relation Many Promotion To Many Enseigne 
+	 * -> Enseigne = Coté maitre = coté porteur de la FK
+	 * -> Promotion = coté mapped by
+	 */
+	@ManyToMany(mappedBy="listePromotion")
+	private List<Enseigne> listEnseigne;
+	
 
 	/**
 	 * 
@@ -128,6 +137,15 @@ public class Promotion implements Serializable{
 	}
 	
 	
+	
+
+	public List<Enseigne> getListEnseigne() {
+		return listEnseigne;
+	}
+
+	public void setListEnseigne(List<Enseigne> listEnseigne) {
+		this.listEnseigne = listEnseigne;
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
