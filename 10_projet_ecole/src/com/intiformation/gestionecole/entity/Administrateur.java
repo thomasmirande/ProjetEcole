@@ -27,12 +27,19 @@ public class Administrateur extends Personne implements Serializable {
 
 	public Administrateur(int identifiant, String motDePasse, String nom, String prenom, String email) {
 		super(identifiant, motDePasse, nom, prenom, email);
-		// TODO Auto-generated constructor stub
+		this.setIdentifiant(identifiant);
+		this.setMotDePasse(motDePasse);
+		this.setNom(nom);
+		this.setPrenom(prenom);
+		this.setEmail(email);
 	}
 
 	public Administrateur(String motDePasse, String nom, String prenom, String email) {
 		super(motDePasse, nom, prenom, email);
-		// TODO Auto-generated constructor stub
+		this.setMotDePasse(motDePasse);
+		this.setNom(nom);
+		this.setPrenom(prenom);
+		this.setEmail(email);
 	}
 	/*-------------------Getters & Setter-----------------------------------*/
 

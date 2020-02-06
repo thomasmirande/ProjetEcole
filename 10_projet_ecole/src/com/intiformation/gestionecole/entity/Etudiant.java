@@ -6,14 +6,9 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
-
-import com.intiformation.gestionecole.dao.EtudiantCoursDao;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "PERSONNE_ID", referencedColumnName = "identifiant")
@@ -58,12 +53,21 @@ public class Etudiant extends Personne implements Serializable {
 	public Etudiant(int identifiant, String motDePasse, String nom, String prenom, String email, boolean photo,
 			String dateDeNaissance) {
 		super(identifiant, motDePasse, nom, prenom, email);
+		this.setIdentifiant(identifiant);
+		this.setMotDePasse(motDePasse);
+		this.setNom(nom);
+		this.setPrenom(prenom);
+		this.setEmail(email);
 		this.photo = photo;
 		this.dateDeNaissance = dateDeNaissance;
 	}
 
 	public Etudiant(String motDePasse, String nom, String prenom, String email, boolean photo, String dateDeNaissance) {
 		super(motDePasse, nom, prenom, email);
+		this.setMotDePasse(motDePasse);
+		this.setNom(nom);
+		this.setPrenom(prenom);
+		this.setEmail(email);
 		this.photo = photo;
 		this.dateDeNaissance = dateDeNaissance;
 	}

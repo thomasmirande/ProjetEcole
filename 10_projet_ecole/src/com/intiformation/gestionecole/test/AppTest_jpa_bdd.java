@@ -1,15 +1,14 @@
 package com.intiformation.gestionecole.test;
 
-import java.util.List;
-
-
-import com.intiformation.gestionecole.dao.AideDao;
+import com.intiformation.gestionecole.dao.AdministrateurDaoImpl;
 import com.intiformation.gestionecole.dao.CoursDao;
+import com.intiformation.gestionecole.dao.EnseignantDaoImpl;
 import com.intiformation.gestionecole.dao.EtudiantDaoImpl;
 import com.intiformation.gestionecole.dao.MatiereDao;
 import com.intiformation.gestionecole.dao.PromotionDao;
-import com.intiformation.gestionecole.entity.Aide;
+import com.intiformation.gestionecole.entity.Administrateur;
 import com.intiformation.gestionecole.entity.Cours;
+import com.intiformation.gestionecole.entity.Enseignant;
 import com.intiformation.gestionecole.entity.Etudiant;
 import com.intiformation.gestionecole.entity.Matiere;
 import com.intiformation.gestionecole.entity.Promotion;
@@ -18,39 +17,7 @@ public class AppTest_jpa_bdd {
 
 	public static void main(String[] args) {
 		
-		Aide aide1 = new Aide(2, "contenu de l'aide 1");	
-		Aide aide2 = new Aide(4, "conteneu de la page 2");
-		Aide aide3 = new Aide(56, "contenu de l'aide 3");
-		
-		AideDao aideDao = new AideDao();
-		
-		aideDao.add(aide1);
-		aideDao.add(aide2);
-		aideDao.add(aide3);
-		
-		List<Aide> liste = aideDao.getAll();
-		
-		System.out.println("-----------------------");
-		for (Aide a : liste) {
-			System.out.println("\t > " + a);
-		}
-		
-		Aide aide3Modif = new Aide(74, "modification du contenu de l'aide 3");
-		
-		
-		
-		System.out.println("Aide 3 avant modif : " + aide3);
-		aideDao.update(aide3Modif, 3);
-		System.out.println("Aide 3 après modif modif : " + aide3);
-		
-		aideDao.delete(3);
-		
-		List<Aide> liste2 = aideDao.getAll();
-		
-		System.out.println("-----------------------");
-		for (Aide a : liste2) {
-			System.out.println("\t > " + a);
-		}
+	
 		
 		CoursDao coursDao = new CoursDao();
 		MatiereDao matiereDao = new MatiereDao();
@@ -71,19 +38,32 @@ public class AppTest_jpa_bdd {
 		coursDao.add(cours2);
 		matiereDao.add(matiere1);
 		matiereDao.add(matiere2);
-		promoDao.add(promo1);
-		promoDao.add(promo2);
+		
 		
 		coursDao.attribuerMatiere(cours1, matiere1);
 		coursDao.attribuerMatiere(cours2, matiere2);
 		
+		
+		
+		
+		Etudiant etudiant1 = new Etudiant("secret", "jean","david","a@mail.com", true, "ouais");
+		Etudiant etudiant2 = new Etudiant("", "", "", "", true, "");
+		EtudiantDaoImpl etudiantDao = new EtudiantDaoImpl();
+		etudiantDao.add(etudiant1);
+		
+		Administrateur admin1= new Administrateur("admin1", "sonnom", "sonprenom", "sonmail");
+		
+		AdministrateurDaoImpl administrateurDao= new AdministrateurDaoImpl();
+		administrateurDao.add(admin1);
+		
+		Enseignant enseignant1=new Enseignant("secret", "younes","mezine","c@mail.com");
+		EnseignantDaoImpl enseignantDao = new EnseignantDaoImpl();
+		enseignantDao.add(enseignant1);
+		
+		promoDao.add(promo1);
+		promoDao.add(promo2);
 		coursDao.attribuerPromotion(cours1, promo1);
 		coursDao.attribuerPromotion(cours2, promo2);
-		
-		
-		
-		
-		
 		
 
 	}// end main
