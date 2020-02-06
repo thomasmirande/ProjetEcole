@@ -11,7 +11,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity(name="enseignant")
 @PrimaryKeyJoinColumn(name = "PERSONNE_ID", referencedColumnName = "identifiant")
-@DiscriminatorValue("Ens")
+@DiscriminatorValue("Enseignant")
 public class Enseignant extends Personne implements Serializable {
 
 	/*-------------------Props en private-----------------------------------*/

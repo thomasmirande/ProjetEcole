@@ -3,16 +3,21 @@ package com.intiformation.gestionecole.entity;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="typePersonne", discriminatorType=DiscriminatorType.STRING)
 public class Personne implements Serializable {
 
 	/*-------------------Props en private-----------------------------------*/

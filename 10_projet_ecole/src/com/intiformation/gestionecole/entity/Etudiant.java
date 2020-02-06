@@ -16,7 +16,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import com.intiformation.gestionecole.dao.EtudiantCoursDao;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "PERSONNE_ID", referencedColumnName = "idPersonne")
+@PrimaryKeyJoinColumn(name = "PERSONNE_ID", referencedColumnName = "identifiant")
 @DiscriminatorValue("Etudiant")
 public class Etudiant extends Personne implements Serializable {
 	/*-------------------Props en private-----------------------------------*/
