@@ -11,7 +11,7 @@ public class SessionUser {
 		FacesContext context = FacesContext.getCurrentInstance();
 		
 		// 2. recup de la session
-		HttpSession session = (HttpSession) context.getCurrentInstance();
+		HttpSession session = (HttpSession) context.getExternalContext().getSession(true);
 		
 		// 3. renvoi de la session
 		return session;

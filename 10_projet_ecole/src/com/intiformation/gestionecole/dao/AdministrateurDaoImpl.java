@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -112,6 +113,28 @@ try {
 			e.printStackTrace();
 			System.out.println("La suppression a échoué");
 		}
+	}
+
+	@Override
+	public boolean isExist(String pLogin, String pMotDePasse) {
+		String requeteCount = "SELECT COUNT(a.identifiant) FROM administrateur a WHERE a.email = :pAdministrateurLogin AND a.motDePasse = :pMotDePasse";
+		
+		try {
+			
+			
+			Query countQuery = entityManager.createQuery(requeteCount);
+			countQuery.setParameter("pAdministrateurLogin", pLogin);
+			countQuery.setParameter("pMotDePasse", pMotDePasse);
+			
+			Long nombreAdministrateur = (Long) countQuery.getSingleResult();
+			
+			return(nombreAdministrateur ==1)?true:false;
+			
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+			
+		}
+		return false;
 	}
 
 }

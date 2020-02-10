@@ -13,7 +13,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-@Entity
+@Entity(name="administrateur")
 @PrimaryKeyJoinColumn(name = "PERSONNE_ID", referencedColumnName = "identifiant")
 @DiscriminatorValue("Administrateur")
 public class Administrateur extends Personne implements Serializable {

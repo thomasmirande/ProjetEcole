@@ -15,21 +15,22 @@
 			</f:facet>
 			
 			<h:outputLabel value="Identifiant : " />
-			<h:inputText id="userId" value="#{navigationBean.log}" />
+			<h:inputText id="userId" value="#{navigationBean.login}" />
 			<h:message for="userId" styleClass="error"/>
 			
 			<h:outputLabel value="Mot de passe : " />
-			<h:inputText id="userMdp" value="#{navigationBean.pas}" />
+			<h:inputText id="userMdp" value="#{navigationBean.password}" />
 			<h:message for="userMdp" styleClass="error" />
 			
 			<f:facet name="footer">
-				<h:commandButton action="authentification" value="Se connecter" />
+				<h:commandButton action="#{navigationBean.connecterUtilisateur()}" value="Se connecter" />
 			</f:facet>
 		
 		
 		
 		</h:panelGrid>
 	
+	<h:link value="index" outcome="index.xhtml"/>
 
 	</h:form>
 </h:body> 

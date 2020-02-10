@@ -47,9 +47,10 @@ public class AppTest_jpa_bdd {
 		
 		
 		Etudiant etudiant1 = new Etudiant("secret", "jean","david","a@mail.com", true, "ouais");
-		Etudiant etudiant2 = new Etudiant("", "", "", "", true, "");
+		Etudiant etudiant2 = new Etudiant("mdpE", "michel", "cymes", "mic", true, "");
 		EtudiantDaoImpl etudiantDao = new EtudiantDaoImpl();
 		etudiantDao.add(etudiant1);
+		etudiantDao.add(etudiant2);
 		
 		Administrateur admin1= new Administrateur("admin1", "sonnom", "sonprenom", "sonmail");
 		
@@ -57,8 +58,18 @@ public class AppTest_jpa_bdd {
 		administrateurDao.add(admin1);
 		
 		Enseignant enseignant1=new Enseignant("secret", "younes","mezine","c@mail.com");
+		
+		Enseignant enseignant2 = new Enseignant("456", "mélanie", "labiche", "mel");
+		
+		Administrateur admin2 = new Administrateur("mdpA", "jeanne", "jeanne", "jea");
+		
+		administrateurDao.add(admin2);
+		
+		
+		
 		EnseignantDaoImpl enseignantDao = new EnseignantDaoImpl();
 		enseignantDao.add(enseignant1);
+		enseignantDao.add(enseignant2);
 		
 		promoDao.add(promo1);
 		promoDao.add(promo2);

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>Modification d'une matière</title>
+</h:head> 
+<h:body> 
+
+<h:form>
+		<h:panelGrid columns="2" border="1">
+			<f:facet name="header">
+				<h:outputText value="Formulaire de modification d'une matière" />
+			</f:facet>
+			
+			<h:outputLabel value="Libellé" />
+			<h:inputText value="#{gestionMatiereBean.matiere.libelle}" />
+
+		</h:panelGrid>
+		
+		<f:facet name="footer">
+			<h:commandButton action="modifierMatiere" value="Modifier" actionListener="" />
+		</f:facet>
+</h:form>
+
+</h:body> 
+</html>

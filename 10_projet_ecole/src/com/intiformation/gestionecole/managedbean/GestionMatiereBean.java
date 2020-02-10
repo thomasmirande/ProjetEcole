@@ -48,6 +48,18 @@ public class GestionMatiereBean implements Serializable{
 			matiereDao.add(matiere);
 		}
 		
+		public void chargerMatiere(ActionEvent event) {
+			// recup de l'id de la matière à modifier
+			UIParameter component = (UIParameter) event.getComponent().findComponent("modifId");
+			int matiereId = (int) component.getValue();
+			
+			
+		}// end chargerMatiere
+		
+		public void modifierMatiere(ActionEvent event) {
+			
+		}// end modifierMatiere
+		
 		
 		/**
 		 * Méthode invoquée au cic sur le bouton supprimer de la dataTable de matiere.xhtml

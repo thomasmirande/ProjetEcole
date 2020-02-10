@@ -10,7 +10,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-@Entity
+@Entity(name="etudiant")
 @PrimaryKeyJoinColumn(name = "PERSONNE_ID", referencedColumnName = "identifiant")
 @DiscriminatorValue("Etudiant")
 public class Etudiant extends Personne implements Serializable {

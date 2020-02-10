@@ -124,10 +124,11 @@ public class EnseignantDaoImpl implements IEnseignantDao {
 
 	@Override
 	public boolean isExist(String pLogin, String pMotDePasse) {
+		String requeteCount = "SELECT COUNT(e.identifiant) FROM enseignant e WHERE e.email = :pEnseignantLogin AND e.motDePasse = :pMotDePasse";
 		
 		try {
 			
-			String requeteCount = "SELECT COUNT(e.identifiant) FROM enseignant e WHERE e.email = :pEnseignantLogin AND e.motDePasse = :pMotDePasse";
+			
 			Query countQuery = entityManager.createQuery(requeteCount);
 			countQuery.setParameter("pEnseignantLogin", pLogin);
 			countQuery.setParameter("pMotDePasse", pMotDePasse);
