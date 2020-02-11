@@ -2,16 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
 
 <h:head></h:head> 
 <body> 
 <!-- Injection du fragment header -->
-<div id="header">
-	<ui:insert name="header">
-		<ui:include src="/templates/header.xhtml" />
-	</ui:insert>
-</div>
+<ui:decorate template="/templates/header.xhtml">
+
+</ui:decorate>
+
+
 <div id="sidebar">
 	<ui:insert name="sidebar">
 		<ui:include src="/templates/sidebar.xhtml" />
