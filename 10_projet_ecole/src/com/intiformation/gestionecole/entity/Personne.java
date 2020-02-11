@@ -69,6 +69,16 @@ public class Personne implements Serializable {
 		this.email = email;
 	}
 	
+	
+	
+	public Personne(String motDePasse, String nom, String prenom, String email, Adresse adresse) {
+		super();
+		this.motDePasse = motDePasse;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.adresse = adresse;
+	}
 	/*-------------------Getters & Setter-----------------------------------*/	
 	public int getIdentifiant() {
 		return identifiant;

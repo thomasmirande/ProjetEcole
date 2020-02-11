@@ -8,6 +8,7 @@
 	<title>Authentification</title>
 </h:head> 
 <h:body> 
+	
 	<h:form>
 		<h:panelGrid columns="3" cellpadding="1" cellspacing="2">
 			<f:facet name="header">
@@ -15,11 +16,15 @@
 			</f:facet>
 			
 			<h:outputLabel value="Identifiant : " />
-			<h:inputText id="userId" value="#{navigationBean.login}" />
+			<h:inputText id="userId" value="#{navigationBean.login}" required="true" requiredMessage="Le login est obligatoire">
+				<f:validator validatorId="loginValidateur"/>
+			</h:inputText>
 			<h:message for="userId" styleClass="error"/>
 			
 			<h:outputLabel value="Mot de passe : " />
-			<h:inputText id="userMdp" value="#{navigationBean.password}" />
+			<h:inputText id="userMdp" value="#{navigationBean.password}" required="true" requiredMessage="Le mot de passe est obligatoire">
+				<f:validator validatorId="mdpValidateur"/>
+			</h:inputText>
 			<h:message for="userMdp" styleClass="error" />
 			
 			<f:facet name="footer">

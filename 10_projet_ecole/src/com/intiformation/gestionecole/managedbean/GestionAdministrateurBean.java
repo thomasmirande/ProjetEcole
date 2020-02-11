@@ -1,88 +1,115 @@
 package com.intiformation.gestionecole.managedbean;
 
-public class GestionAdministrateurBean {
+import java.io.Serializable;
+import java.util.Collection;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIParameter;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+
+import com.intiformation.gestionecole.dao.AdministrateurDaoImpl;
+import com.intiformation.gestionecole.entity.Administrateur;
+
+@ManagedBean(name="gestionAdminBean")
+@SessionScoped
+public class GestionAdministrateurBean implements Serializable{
 	/*-------------------Props en private-----------------------------------*/
-	private int identifiant;
-	private String motDePasse;
-	private String nom;
-	private String prenom;
-	private String email;
+	// Liste des admin de la bdd pour alimenter la datatable de listeAdmin.xhtml
+	private Collection<Administrateur> listeAdmin;
+	
+	// Dao de admin
+	private AdministrateurDaoImpl adminDao;
+	
+	//Entité
+	private Administrateur admin;
 	
 	
 	/*-------------------Ctors au mini un vide------------------------------*/
-	public GestionAdministrateurBean(int identifiant, String motDePasse, String nom, String prenom, String email) {
-		super();
-		this.identifiant = identifiant;
-		this.motDePasse = motDePasse;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-	}//Ctor Full
+	
 
-
-	public GestionAdministrateurBean(String motDePasse, String nom, String prenom, String email) {
-		super();
-		this.motDePasse = motDePasse;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-	}//endCtor id
-
+	
 
 	public GestionAdministrateurBean() {
-		super();
-	}//end ctor vide
+		adminDao = new AdministrateurDaoImpl();
+	}
+
+
+	
+	
+	
 	/*-------------------Méthodes-------------------------------------------*/
+	
+	/**
+	 * Recup de la liste des admin dans la bdd
+	 * @return
+	 */
+	public Collection<Administrateur> findAllAdminBdd(){
+		listeAdmin = adminDao.getAll();
+		return listeAdmin;
+	}
+	
+	public void supprimerAdmin(ActionEvent event) {
+		
+		UIParameter component = (UIParameter) event.getComponent().findComponent("deleteId");
+		
+		// recup de la valeur du param (id du cours)
+		int adminId = (int) component.getValue();
+		
+		// suppression du cours dans la bdd via la dao
+		// envoi d'un message vers la vue avec la classe FacesMessage
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		
+		try {
+			adminDao.delete(adminId);
+			FacesMessage messageDelete = new FacesMessage("L'administrateur a été supprimé avec succès");
+			
+			context.addMessage(null, messageDelete);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			context.addMessage(null, new FacesMessage("Echec de la suppression"));
+
+		}
+		
+	}// end supprimerAdmin
+	
+	/**
+	 * Méthode invoquée au clic du bouton 'ajouter dans listeAdmin.xhtml
+	 * @param event
+	 */
+	public void initialiserAdmin(ActionEvent event) {
+		Administrateur adminAjout = new Administrateur();
+		setAdmin(adminAjout);
+	}
+	
+	public void ajouterAdmin(ActionEvent event) {
+		adminDao.add(admin);
+	}
+	
+	
 	/*-------Getters & Setter-----------------------------------*/
 
-
-	public int getIdentifiant() {
-		return identifiant;
+	public Collection<Administrateur> getListeAdmin() {
+		return listeAdmin;
 	}
 
 
-	public void setIdentifiant(int identifiant) {
-		this.identifiant = identifiant;
+	public void setListeAdmin(Collection<Administrateur> listeAdmin) {
+		this.listeAdmin = listeAdmin;
 	}
 
 
-	public String getMotDePasse() {
-		return motDePasse;
+	public Administrateur getAdmin() {
+		return admin;
 	}
 
 
-	public void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
-	}
-
-
-	public String getNom() {
-		return nom;
-	}
-
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-
-	public String getPrenom() {
-		return prenom;
-	}
-
-
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-
-
-	public String getEmail() {
-		return email;
-	}
-
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setAdmin(Administrateur admin) {
+		this.admin = admin;
 	}
 	
 }

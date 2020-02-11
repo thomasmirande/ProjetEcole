@@ -53,4 +53,24 @@
     TITLE="addPromo" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listeAdmin.xhtml" PATH="/listeAdmin.xhtml"
+  SHAPE="32,577,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listeAdmin.xhtml:0" NAME="item"
+   PATH="/listeAdmin.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="addAdmin::#ajoutAdmin.xhtml" NAME="output"
+    PATH="/ajoutAdmin.xhtml" TARGET="rules:#ajoutAdmin.xhtml"
+    TITLE="addAdmin" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#ajoutAdmin.xhtml" PATH="/ajoutAdmin.xhtml"
+  SHAPE="240,593,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#ajoutAdmin.xhtml:0" NAME="item"
+   PATH="/ajoutAdmin.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="ajoutAdmin::listeAdmin.xhtml" NAME="output"
+    PATH="listeAdmin.xhtml" TARGET="rules:listeAdmin.xhtml"
+    TITLE="ajoutAdmin" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:listeAdmin.xhtml" PATH="listeAdmin.xhtml"
+  SHAPE="448,577,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>
