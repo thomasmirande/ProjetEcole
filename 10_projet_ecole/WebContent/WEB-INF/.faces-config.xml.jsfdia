@@ -73,4 +73,17 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:listeAdmin.xhtml" PATH="listeAdmin.xhtml"
   SHAPE="448,577,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#AdminGestionAbsence.xhtml"
+  PATH="/AdminGestionAbsence.xhtml" SHAPE="256,289,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#Administrateur.xhtml"
+  PATH="/Administrateur.xhtml" SHAPE="32,689,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#Administrateur.xhtml:0" NAME="item"
+   PATH="/Administrateur.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="AdminGestionAbsence::#AdminGestionAbsence.xhtml" NAME="output"
+    PATH="/AdminGestionAbsence.xhtml"
+    TARGET="rules:#AdminGestionAbsence.xhtml"
+    TITLE="AdminGestionAbsence" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

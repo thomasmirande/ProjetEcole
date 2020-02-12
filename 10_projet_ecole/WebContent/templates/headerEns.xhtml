@@ -3,33 +3,17 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:p="http://primefaces.org/ui"
-      > 
+      xmlns:p="http://primefaces.org/ui"> 
 
 <h:head></h:head> 
 <body> 
-	<!-- >Pour les templates JSF, on utilise la taglib facelet ( préfixe ui)
-
-	 -->
-<!--  Définition du contenue par défaut du fragments du header -->	 
-
 <ui:composition>
 	<h:form>  
     <p:growl id="messages"/>
  
     <p:menubar>
         <p:submenu label="Administrateur" icon="pi pi-file">
-            <p:submenu label="Gestion" icon="pi pi-briefcase">
-                <p:menuitem value="Gestion des abscences" url="AdminGestionAbsence.xhtml" />
-                <p:menuitem value="Gestion des matières" url="AdminGestionMatiere.xhtml"  />
-                <p:menuitem value="Gestion des promotions" url="AdminGestionPromotion.xhtml" />
-                <p:menuitem value="Gestion des cours" url="AdminGestionCours.xhtml" />
-                <p:menuitem value="Gestion de l'aide" url="AdminGestionAide.xhtml" />
-                
-            </p:submenu>
-            <p:menuitem value="Retour à l'accueil" url="#" />
-            <p:separator />
-            <p:menuitem value="Se déconnecter" url="Athentification.xhtml" />
+            
         </p:submenu>
  
         <p:submenu label="Etudiant" >
@@ -37,7 +21,14 @@
         </p:submenu>
  
         <p:submenu label="Enseignant" >
-            
+            <p:submenu label="Gestion" icon="pi pi-briefcase">
+                <p:menuitem value="Gestion des cours et exercices" url="EnsGestionCoursExo.xhtml" />
+                <p:menuitem value="Gestion des absences et étudiants" url="EnsGestionAbsEtu.xhtml"  />
+                
+            </p:submenu>
+            <p:menuitem value="Retour à l'accueil" url="#" />
+            <p:separator />
+            <p:menuitem value="Se déconnecter" url="Athentification.xhtml" />
         </p:submenu>
  
         <p:submenu label="Help" icon="pi pi-cog" url="Aide.xhtml">
@@ -54,6 +45,5 @@
    
 </h:form>
  </ui:composition>
-	
 </body> 
 </html>

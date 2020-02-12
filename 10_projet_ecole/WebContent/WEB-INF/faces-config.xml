@@ -31,6 +31,7 @@
     		<!--  page de destination -->
     		<to-view-id>/ajoutCours.xhtml</to-view-id>
     	</navigation-case>
+    
     </navigation-rule>
     
     <!--  Règle de navigation pour ajoutCours.xhtml -->
@@ -130,5 +131,16 @@
     
     
     </navigation-rule>
-
+     
+     
+     
+     <navigation-rule>
+     <from-view-id>/Administrateur.xhtml</from-view-id>
+    	<navigation-case>
+	<!-- Menu Admnin direction AdminGestionAbsence -->
+	<from-outcome>AdminGestionAbsence</from-outcome>
+	<!--  page de destination -->
+		<to-view-id>/AdminGestionAbsence.xhtml</to-view-id>
+	</navigation-case>
+	</navigation-rule>
 </faces-config>
