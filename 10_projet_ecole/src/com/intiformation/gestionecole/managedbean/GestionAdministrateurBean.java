@@ -11,7 +11,9 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import com.intiformation.gestionecole.dao.AdministrateurDaoImpl;
+import com.intiformation.gestionecole.dao.AdresseDao;
 import com.intiformation.gestionecole.entity.Administrateur;
+import com.intiformation.gestionecole.entity.Adresse;
 
 @ManagedBean(name="gestionAdminBean")
 @SessionScoped
@@ -25,6 +27,10 @@ public class GestionAdministrateurBean implements Serializable{
 	
 	//Entité
 	private Administrateur admin;
+	
+	private AdresseDao adresseDao;
+	
+	private Adresse adresse;
 	
 	
 	/*-------------------Ctors au mini un vide------------------------------*/

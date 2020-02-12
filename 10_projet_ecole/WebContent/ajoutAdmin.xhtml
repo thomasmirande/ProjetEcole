@@ -29,11 +29,8 @@
 			<h:outputLabel value="Mot de passe" />
 			<h:inputText value="#{gestionAdminBean.admin.motDePasse}" />
 			
-			<h:outputLabel value="Adresse" />
-			<h:inputText value="#{gestionAdminBean.admin.adresse}" />
-			
 			<f:facet name="footer">
-				<h:commandButton action="ajoutAdmin" value="Ajouter" actionListener="#{gestionAdminBean.ajouterAdmin()}"/>
+				<h:commandButton action="ajoutAdmin" value="Ajouter" actionListener="#{gestionAdminBean.ajouterAdmin}"/>
 			</f:facet>
 	
 		</h:panelGrid>
