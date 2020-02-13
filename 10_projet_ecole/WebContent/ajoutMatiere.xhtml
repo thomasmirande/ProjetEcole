@@ -17,12 +17,13 @@
 			
 			<h:outputLabel value="Libellé" />
 			<h:inputText value="#{gestionMatiereBean.matiere.libelle}" />
-
+				
+			<f:facet name="footer">
+			<h:commandButton action="ajouterMatiere" value="Ajouter" actionListener="#{gestionMatiereBean.ajouterMatiere}" />
+			</f:facet>
 		</h:panelGrid>
 		
-		<f:facet name="footer">
-			<h:commandButton action="ajouterMatiere" value="Ajouter" actionListener="#{gestionMatiereBean.ajouterMatiere()}" />
-		</f:facet>
+		
 	
 	
 	
