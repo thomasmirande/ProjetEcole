@@ -2,14 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
 	
 	<h:head>
 	<title>Gestion des Promotions</title>
 </h:head> 
 <h:body> 
-
+<ui:decorate template="/templates/header.xhtml"></ui:decorate>
 <!--  Déconnexion de l'utilisateur -->
 	
 	
@@ -19,10 +20,10 @@
 	<h:form>
 	<!--  Affichage de la liste de cours de la bdd avec le composant h:dataTable -->
 	
-	<h:dataTable value="#{gestionPromotionBean.findAllPromo()}" var="promotion" border="1">
+	<p:dataTable value="#{gestionPromotionBean.findAllPromo()}" var="promotion" border="1">
 	
 		<!--  colonne identifiant -->
-		<h:column>
+		<p:column>
 			<!--  e tete de colonne -->
 			<f:facet name="header">
 				<h:outputText value="Identifiant" />
@@ -30,37 +31,37 @@
 			
 			<!-- données -->
 			<h:outputText value="#{promotion.idPromotion}" />
-		</h:column>
+		</p:column>
 		
 		<!--  colonne libellé -->
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Libellé" />
 			</f:facet>
 			
 			<h:outputText value="#{promotion.libelle}" />
-		</h:column>
+		</p:column>
 		
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="" />
 			</f:facet>
 			
 			<h:outputText value="" />
-		</h:column>
+		</p:column>
 		
 		<!--  colonne pour modifier le cours -->
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Modifier" />
 			</f:facet>
 			
 			<h:commandButton action="modifPromo" value="Modifier" />
 		
-		</h:column>
+		</p:column>
 		
 		<!--  colonne pour supprimer le cours -->
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Supprimer" />
 			</f:facet>
@@ -68,10 +69,10 @@
 			<h:commandButton action="supPromo" value="Supprimer" actionListener="#{gestionPromotionBean.supprimerPromo}"/>
 			<f:param id="deleteId" name="id" value="#{promotion.idPromotion}"></f:param>
 			
-		</h:column>
+		</p:column>
 
 	
-	</h:dataTable>
+	</p:dataTable>
 	
 	<h:commandButton action="ajoutPromo" value="Ajouter" actionListener="#{gestionPromotionBean.initialiserPromo}"/>
 	

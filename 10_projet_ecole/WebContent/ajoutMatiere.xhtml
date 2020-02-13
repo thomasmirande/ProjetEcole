@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
 	<title>Ajout Matière</title>
@@ -10,7 +11,7 @@
 <body> 
 
 	<h:form>
-		<h:panelGrid columns="2" border="1">
+		<p:panelGrid columns="2" border="1">
 			<f:facet name="header">
 				<h:outputText value="Formulaire d'ajout d'une nouvelle matière" />
 			</f:facet>
@@ -21,7 +22,7 @@
 			<f:facet name="footer">
 			<h:commandButton action="ajouterMatiere" value="Ajouter" actionListener="#{gestionMatiereBean.ajouterMatiere}" />
 			</f:facet>
-		</h:panelGrid>
+		</p:panelGrid>
 		
 		
 	

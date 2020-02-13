@@ -2,13 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
 	<title>Gestion des cours</title>
 </h:head> 
 <h:body> 
-
+<ui:decorate template="/templates/header.xhtml"></ui:decorate>
 	<!--  Déconnexion de l'utilisateur -->
 	
 	
@@ -18,10 +19,10 @@
 	<h:form>
 	<!--  Affichage de la liste de cours de la bdd avec le composant h:dataTable -->
 	
-	<h:dataTable value="#{gestionCoursBean.findAllCoursBdd()}" var="cours" border="1">
+	<p:dataTable value="#{gestionCoursBean.findAllCoursBdd()}" var="cours" border="1">
 	
 		<!--  colonne identifiant -->
-		<h:column>
+		<p:column>
 			<!--  e tete de colonne -->
 			<f:facet name="header">
 				<h:outputText value="Identifiant" />
@@ -29,62 +30,62 @@
 			
 			<!-- données -->
 			<h:outputText value="#{cours.idCours}" />
-		</h:column>
+		</p:column>
 		
 		<!--  colonne libellé -->
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Libellé" />
 			</f:facet>
 			
 			<h:outputText value="#{cours.libelle}" />
-		</h:column>
+		</p:column>
 		
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Date" />
 			</f:facet>
 			
 			<h:outputText value="#{cours.date}" />
-		</h:column>
+		</p:column>
 		
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Durée" />
 			</f:facet>
 			
 			<h:outputText value="#{cours.duree}" />
-		</h:column>
+		</p:column>
 		
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Description" />
 			</f:facet>
 			
 			<h:outputText value="#{cours.description}" />	
-		</h:column>
+		</p:column>
 		
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Matière" />
 			</f:facet>
 			
 			<h:outputText value="#{cours.matiere}" />
-		</h:column>
+		</p:column>
 		
 		
 		<!--  colonne pour modifier le cours -->
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Modifier" />
 			</f:facet>
 			
 			
 		
-		</h:column>
+		</p:column>
 		
 		<!--  colonne pour supprimer le cours -->
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Supprimer" />
 			</f:facet>
@@ -92,8 +93,8 @@
 			<h:commandButton action="supCours" value="Supprimer" actionListener="#{gestionCoursBean.supprimerCours()}"/>
 			<f:param id="deleteId" name="id" value="#{cours.idCours}"></f:param>
 			
-		</h:column>	
-	</h:dataTable>
+		</p:column>	
+	</p:dataTable>
 	
 	<h:commandButton action="addCours" value="Ajouter" actionListener="#{gestionCoursBean.initialiserCours()}" />
 	
