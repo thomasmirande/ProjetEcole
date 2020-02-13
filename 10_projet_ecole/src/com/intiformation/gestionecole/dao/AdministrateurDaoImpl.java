@@ -98,6 +98,26 @@ try {
 			System.out.println("La modification a échoué");
 		}
 	}
+	
+	public void update(Administrateur pAdministrateur) {
+		try {
+			EntityTransaction tx = entityManager.getTransaction();
+			tx.begin();
+			Administrateur adminModif = entityManager.find(Administrateur.class, pAdministrateur.getIdentifiant());
+			
+			adminModif.setMotDePasse(pAdministrateur.getMotDePasse());
+			adminModif.setNom(pAdministrateur.getNom());
+			adminModif.setPrenom(pAdministrateur.getPrenom());
+			adminModif.setEmail(pAdministrateur.getEmail());
+			entityManager.merge(adminModif);
+			
+			tx.commit();
+			
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+			System.out.println("La modification a échoué");
+		}
+	}
 
 	@Override
 	public void delete(int pIdAdministrateur) {

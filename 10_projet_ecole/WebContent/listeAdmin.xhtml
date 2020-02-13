@@ -73,6 +73,8 @@
 				<h:outputText value="Modifier" />
 			</f:facet>
 			
+			<h:commandButton action="modifAdmin" value="Modifier" actionListener="#{gestionAdminBean.chargerInfoAdmin}"/>
+			<f:param id="modifId" name="id" value="#{admin.identifiant}"></f:param>
 			
 		
 		</h:column>

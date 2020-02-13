@@ -113,6 +113,12 @@
 			<from-outcome>addAdmin</from-outcome>
 			<to-view-id>/ajoutAdmin.xhtml</to-view-id>
 		</navigation-case>
+		
+		<!-- 2ème cas de navigation : vers modifAdmin.xhtml -->
+		<navigation-case>
+			<from-outcome>modifAdmin</from-outcome>
+			<to-view-id>/modifAdmin.xhtml</to-view-id>
+		</navigation-case>
 
 
 	</navigation-rule>
@@ -125,6 +131,20 @@
 		<navigation-case>
 
 			<from-outcome>ajoutAdmin</from-outcome>
+			<to-view-id>listeAdmin.xhtml</to-view-id>
+		</navigation-case>
+
+
+	</navigation-rule>
+	
+	<!-- Règle de navigation pour modifAdmin.xhtml -->
+	<navigation-rule>
+		<from-view-id>/modifAdmin.xhtml</from-view-id>
+
+		<!-- 1er cas de navigation : vers listeAdmin.xhtml -->
+		<navigation-case>
+
+			<from-outcome>listAdmin</from-outcome>
 			<to-view-id>listeAdmin.xhtml</to-view-id>
 		</navigation-case>
 

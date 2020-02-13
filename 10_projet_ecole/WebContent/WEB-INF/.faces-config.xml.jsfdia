@@ -60,6 +60,9 @@
    <PROCESS-ITEM-OUTPUT ID="addAdmin::#ajoutAdmin.xhtml" NAME="output"
     PATH="/ajoutAdmin.xhtml" TARGET="rules:#ajoutAdmin.xhtml"
     TITLE="addAdmin" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="modifAdmin::#modifAdmin.xhtml"
+    NAME="output1" PATH="/modifAdmin.xhtml"
+    TARGET="rules:#modifAdmin.xhtml" TITLE="modifAdmin" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ajoutAdmin.xhtml" PATH="/ajoutAdmin.xhtml"
@@ -132,6 +135,15 @@
    <PROCESS-ITEM-OUTPUT ID="ajoutEnseignant::#listeEnseignant.xhtml"
     NAME="output" PATH="/listeEnseignant.xhtml"
     TARGET="rules:#listeEnseignant.xhtml" TITLE="ajoutEnseignant" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#modifAdmin.xhtml" PATH="/modifAdmin.xhtml"
+  SHAPE="256,737,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#modifAdmin.xhtml:0" NAME="item"
+   PATH="/modifAdmin.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listAdmin::listeAdmin.xhtml" NAME="output"
+    PATH="listeAdmin.xhtml" TARGET="rules:listeAdmin.xhtml"
+    TITLE="listAdmin" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
 </PROCESS>

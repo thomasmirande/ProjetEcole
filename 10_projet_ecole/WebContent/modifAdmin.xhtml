@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>Modification d'un administrateur</title>
+</h:head> 
+<h:body> 
+
+<h:form>
+		<!-- Recup de l'id de l'admin dans un champs caché -->
+		<h:inputHidden value="#{gestionAdminBean.admin.identifiant}" />
+		
+		<h:panelGrid columns="2" border="1">
+		
+			<f:facet name="header">
+				<h:outputText value="Formulaire de modification d'un administrateur" />
+			</f:facet>
+			
+			<h:outputLabel value="Nom" />
+			<h:inputText value="#{gestionAdminBean.admin.nom}" />
+			
+			<h:outputLabel value="Prénom" />
+			<h:inputText value="#{gestionAdminBean.admin.prenom}" />
+			
+			<h:outputLabel value="Email" />
+			<h:inputText value="#{gestionAdminBean.admin.email}" />
+			
+			<h:outputLabel value="Mot de passe" />
+			<h:inputText value="#{gestionAdminBean.admin.motDePasse}" />
+			
+			<f:facet name="footer">
+				<h:commandButton action="listAdmin" value="Modifier" actionListener="#{gestionAdminBean.chargerInfoAdmin}"/>
+			</f:facet>
+	
+		</h:panelGrid>
+
+	</h:form>
+
+
+</h:body> 
+</html>

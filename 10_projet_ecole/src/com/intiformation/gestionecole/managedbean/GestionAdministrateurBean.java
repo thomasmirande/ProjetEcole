@@ -14,6 +14,7 @@ import com.intiformation.gestionecole.dao.AdministrateurDaoImpl;
 import com.intiformation.gestionecole.dao.AdresseDao;
 import com.intiformation.gestionecole.entity.Administrateur;
 import com.intiformation.gestionecole.entity.Adresse;
+import com.intiformation.gestionecole.entity.Etudiant;
 
 @ManagedBean(name="gestionAdminBean")
 @SessionScoped
@@ -94,6 +95,18 @@ public class GestionAdministrateurBean implements Serializable{
 	
 	public void ajouterAdmin(ActionEvent event) {
 		adminDao.add(admin);
+	}
+	
+	public void chargerInfoAdmin(ActionEvent event) {
+		UIParameter component = (UIParameter) event.getComponent().findComponent("modifId");
+		int idModif = (int) component.getValue();
+		Administrateur adminModif = adminDao.getById(idModif);
+		setAdmin(adminModif);;
+	}
+	
+	public void modifierAdmin(ActionEvent event) {
+		adminDao.update(admin);
+		
 	}
 	
 	
