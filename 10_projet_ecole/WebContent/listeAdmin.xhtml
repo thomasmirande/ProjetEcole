@@ -2,20 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
 	<title>Gestion des administrateurs</title>
 </h:head> 
 <h:body> 
-
+<ui:decorate template="/templates/header.xhtml"></ui:decorate>
 <h:form>
 	<!--  Affichage de la liste des admin de la bdd avec le composant h:dataTable -->
 	
-	<h:dataTable value="#{gestionAdminBean.findAllAdminBdd()}" var="admin" border="1">
+	<p:dataTable value="#{gestionAdminBean.findAllAdminBdd()}" var="admin" border="1">
 	
 		<!--  colonne identifiant -->
-		<h:column>
+		<p:column>
 			<!--  e tete de colonne -->
 			<f:facet name="header">
 				<h:outputText value="Identifiant" />
@@ -23,75 +24,75 @@
 			
 			<!-- données -->
 			<h:outputText value="#{admin.identifiant}" />
-		</h:column>
+		</p:column>
 		
 		<!--  colonne libellé -->
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Nom" />
 			</f:facet>
 			
 			<h:outputText value="#{admin.nom}" />
-		</h:column>
+		</p:column>
 		
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Prénom" />
 			</f:facet>
 			
 			<h:outputText value="#{admin.prenom}" />
-		</h:column>
+		</p:column>
 		
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Email" />
 			</f:facet>
 			
 			<h:outputText value="#{admin.email}" />
-		</h:column>
+		</p:column>
 		
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Mot de passe" />
 			</f:facet>
 			
 			<h:outputText value="#{admin.motDePasse}" />	
-		</h:column>
+		</p:column>
 		
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Adresse" />
 			</f:facet>
 			
 			<h:outputText value="#{admin.adresse.rue} #{admin.adresse.codePostal} #{admin.adresse.ville}" />
-		</h:column>
+		</p:column>
 		
 		
 		<!--  colonne pour modifier le cours -->
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Modifier" />
 			</f:facet>
 			
-			<h:commandButton action="modifAdmin" value="Modifier" actionListener="#{gestionAdminBean.chargerInfoAdmin}"/>
+			<p:commandButton action="modifAdmin" value="Modifier" actionListener="#{gestionAdminBean.chargerInfoAdmin}"/>
 			<f:param id="modifId" name="id" value="#{admin.identifiant}"></f:param>
 			
 		
-		</h:column>
+		</p:column>
 		
 		<!--  colonne pour supprimer le cours -->
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Supprimer" />
 			</f:facet>
 			
-			<h:commandButton value="Supprimer" actionListener="#{gestionAdminBean.supprimerAdmin}"/>
+			<p:commandButton value="Supprimer" actionListener="#{gestionAdminBean.supprimerAdmin}"/>
 			<f:param id="deleteId" name="id" value="#{admin.identifiant}"></f:param>
 			
-		</h:column>	
-	</h:dataTable>
+		</p:column>	
+	</p:dataTable>
 	
-	<h:commandButton action="addAdmin" value="Ajouter" actionListener="#{gestionAdminBean.initialiserAdmin}" />
+	<p:commandButton action="addAdmin" value="Ajouter" actionListener="#{gestionAdminBean.initialiserAdmin}" />
 	
 	
 	</h:form>
