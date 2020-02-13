@@ -25,8 +25,14 @@
                 <p:menuitem value="Gestion des promotions" url="AdminGestionPromotion.xhtml" />
                 <p:menuitem value="Gestion des cours" url="AdminGestionCours.xhtml" />
                 <p:menuitem value="Gestion de l'aide" url="AdminGestionAide.xhtml" />
-                <p:menuitem value="Gestion des personnes" url="AdminGestionPersonne.xhtml" />
+                <p:submenu label="Gestion personnes" icon="pi pi-briefcase">
+                	<p:menuitem value="Gestion des étudiants" url="listeEtudiant.xhtml" />
+                	<p:menuitem value="Gestion des Enseignants" url="listeEnseignant.xhtml" />
+                	<p:menuitem value="Gestion des Administrateurs" url="listeAdmin.xhtml" />
+                </p:submenu>
                 
+                
+                		
             </p:submenu>
             <p:menuitem value="Retour à l'accueil" url="#" />
             <p:separator />
