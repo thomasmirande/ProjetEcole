@@ -1,88 +1,145 @@
 package com.intiformation.gestionecole.managedbean;
 
-public class GestionEtudiantBean {
+import java.io.Serializable;
+import java.util.Collection;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIParameter;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+
+import com.intiformation.gestionecole.dao.AdresseDao;
+import com.intiformation.gestionecole.dao.EtudiantDaoImpl;
+import com.intiformation.gestionecole.entity.Administrateur;
+import com.intiformation.gestionecole.entity.Adresse;
+import com.intiformation.gestionecole.entity.Etudiant;
+@ManagedBean(name="gestionEtudiantBean")
+@SessionScoped
+public class GestionEtudiantBean implements Serializable{
 	
 	/*-------------------Props en private-----------------------------------*/
-	private int identifiant;
-	private String motDePasse;
-	private String nom;
-	private String prenom;
-	private String email;
-	private boolean photo;
-	private String dateDeNaissance;
+	private Collection<Etudiant> listeEtudiant;
+	
+	private EtudiantDaoImpl etudiantDao;
+	
+	private Etudiant etudiant;
+	
+	private AdresseDao adresseDao;
+	
+	private Adresse adresse;
+	
+	
 	/*-------------------Ctors au mini un vide------------------------------*/
-	public GestionEtudiantBean(int identifiant, String motDePasse, String nom, String prenom, String email,
-			boolean photo, String dateDeNaissance) {
-		super();
-		this.identifiant = identifiant;
-		this.motDePasse = motDePasse;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-		this.photo = photo;
-		this.dateDeNaissance = dateDeNaissance;
-	}//Ctor full
-	public GestionEtudiantBean(String motDePasse, String nom, String prenom, String email, boolean photo,
-			String dateDeNaissance) {
-		super();
-		this.motDePasse = motDePasse;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-		this.photo = photo;
-		this.dateDeNaissance = dateDeNaissance;
-	}//Ctor Full without id
+
 	public GestionEtudiantBean() {
-		super();
+		etudiantDao = new EtudiantDaoImpl();
 	}//Ctor vide
+
+
+	
 	/*-------------------Méthodes-------------------------------------------*/
 	
+	public Collection<Etudiant> findAllEtudiantBdd(){
+		listeEtudiant = etudiantDao.getAll();
+		return listeEtudiant;
+	}
 	
+	public void supprimerEtudiant(ActionEvent event) {
+		
+		UIParameter component = (UIParameter) event.getComponent().findComponent("deleteId");
+		
+		// recup de la valeur du param (id du cours)
+		int etuId = (int) component.getValue();
+		
+		// suppression du cours dans la bdd via la dao
+		// envoi d'un message vers la vue avec la classe FacesMessage
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		
+		try {
+			etudiantDao.delete(etuId);
+			FacesMessage messageDelete = new FacesMessage("L'étudiant a été supprimé avec succès");
+			
+			context.addMessage(null, messageDelete);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			context.addMessage(null, new FacesMessage("Echec de la suppression"));
+
+		}
 	
+	}
 	
+	public void initialiserEtudiant(ActionEvent event) {
+		Etudiant etudiantAjout = new Etudiant();
+		setEtudiant(etudiantAjout);
+	}
+	
+	public void ajouterEtudiant(ActionEvent event) {
+		etudiantDao.add(etudiant);
+	}
+	
+	public void chargerInfoEtudiant(ActionEvent event) {
+		UIParameter component = (UIParameter) event.getComponent().findComponent("modifId");
+		int idModif = (int) component.getValue();
+		Etudiant etudiantModif = etudiantDao.getById(idModif);
+		setEtudiant(etudiantModif);
+	}
+	
+	public void modifierEtudiant() {
+		
+	}
 	
 	/*-------------------Guetter/Setter-------------------------------------------*/
-	public int getIdentifiant() {
-		return identifiant;
+	public Collection<Etudiant> getListeEtudiant() {
+		return listeEtudiant;
 	}
-	public void setIdentifiant(int identifiant) {
-		this.identifiant = identifiant;
+
+
+	public void setListeEtudiant(Collection<Etudiant> listeEtudiant) {
+		this.listeEtudiant = listeEtudiant;
 	}
-	public String getMotDePasse() {
-		return motDePasse;
+
+
+	public EtudiantDaoImpl getEtudiantDao() {
+		return etudiantDao;
 	}
-	public void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
+
+
+	public void setEtudiantDao(EtudiantDaoImpl etudiantDao) {
+		this.etudiantDao = etudiantDao;
 	}
-	public String getNom() {
-		return nom;
+
+
+	public Etudiant getEtudiant() {
+		return etudiant;
 	}
-	public void setNom(String nom) {
-		this.nom = nom;
+
+
+	public void setEtudiant(Etudiant etudiant) {
+		this.etudiant = etudiant;
 	}
-	public String getPrenom() {
-		return prenom;
+
+
+	public AdresseDao getAdresseDao() {
+		return adresseDao;
 	}
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+
+
+	public void setAdresseDao(AdresseDao adresseDao) {
+		this.adresseDao = adresseDao;
 	}
-	public String getEmail() {
-		return email;
+
+
+	public Adresse getAdresse() {
+		return adresse;
 	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public boolean isPhoto() {
-		return photo;
-	}
-	public void setPhoto(boolean photo) {
-		this.photo = photo;
-	}
-	public String getDateDeNaissance() {
-		return dateDeNaissance;
-	}
-	public void setDateDeNaissance(String dateDeNaissance) {
-		this.dateDeNaissance = dateDeNaissance;
+
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 	
 	
