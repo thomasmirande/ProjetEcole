@@ -88,7 +88,8 @@ public class GestionEtudiantBean implements Serializable{
 		setEtudiant(etudiantModif);
 	}
 	
-	public void modifierEtudiant() {
+	public void modifierEtudiant(ActionEvent event) {
+		etudiantDao.update(etudiant);
 		
 	}
 	

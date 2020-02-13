@@ -89,7 +89,7 @@
 				<h:outputText value="Modifier" />
 			</f:facet>
 			
-			<h:commandButton action="modifEtudiant" value="Modifier" actionListener="#{gestionEtudiantBean.chargerInfoEtudiant()}"/>
+			<h:commandButton action="modifEtudiant" value="Modifier" actionListener="#{gestionEtudiantBean.chargerInfoEtudiant}"/>
 			<f:param id="modifId" name="id" value="#{etudiant.identifiant}"></f:param>
 
 		</h:column>
@@ -100,14 +100,14 @@
 			</f:facet>
 
 			<h:commandButton value="Supprimer"
-				actionListener="#{gestionEtudiantBean.supprimerEtudiant()}" />
+				actionListener="#{gestionEtudiantBean.supprimerEtudiant}" />
 			<f:param id="deleteId" name="id" value="#{etudiant.identifiant}"></f:param>
 
 		</h:column>
 	</h:dataTable>
 
 	<h:commandButton action="addEtudiant" value="Ajouter"
-		actionListener="#{gestionEtudiantBean.initialiserEtudiant()}" />
+		actionListener="#{gestionEtudiantBean.initialiserEtudiant}" />
 
 
 	</h:form>

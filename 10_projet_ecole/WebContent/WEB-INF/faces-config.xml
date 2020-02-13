@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<faces-config
-    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
-    version="2.2">
-    
- 
-	<!-- Déclaration des validateurs  -->
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+
+
+	<!-- Déclaration des validateurs -->
 	<validator>
 		<validator-id>loginValidateur</validator-id>
 		<validator-class>com.intiformation.gestionecole.tool.LoginValidateur</validator-class>
 	</validator>
-	
+
 	<validator>
 		<validator-id>mdpValidateur</validator-id>
 		<validator-class>com.intiformation.gestionecole.tool.MdpValidateur</validator-class>
@@ -19,128 +18,207 @@
 
 
 
-	<!--  Règle de navigation pour cours.xhtml -->
-    <navigation-rule>
-    	<from-view-id>/cours.xhtml</from-view-id>
-    	
-    	<!--  1er cas de navigation : vers ajoutCours.xhtml -->
-    	<navigation-case>
-    		<!--  clé d'outcom (attribut action dans cours.xhtml)-->
-    		<from-outcome>addCours</from-outcome>
-    		
-    		<!--  page de destination -->
-    		<to-view-id>/ajoutCours.xhtml</to-view-id>
-    	</navigation-case>
-    
-    </navigation-rule>
-    
-    <!--  Règle de navigation pour ajoutCours.xhtml -->
-    <navigation-rule>
-    	<from-view-id>/ajoutCours.xhtml</from-view-id>
-    	
-    	<!--  1er cas de navigation : vers cours.xhtml -->
-    	<navigation-case>
-    		<from-outcome>ajoutCours</from-outcome>
-    		<to-view-id>/cours.xhtml</to-view-id>
-    	</navigation-case>
-    
-    
-    
-    </navigation-rule>
-    
-    
-    <!--  Règle de navigation pour matiere.xhtml -->
-    <navigation-rule>
-    	<from-view-id>/matiere.xhtml</from-view-id>
-    	
-    	<!--  1er cas de navigation : vers ajoutMatiere.xhtml -->
-    	<navigation-case>
-    		<from-outcome>addMatiere</from-outcome>
-    		<to-view-id>/ajoutMatiere.xhtml</to-view-id>
-    	</navigation-case>
-    
-    </navigation-rule>
-    
-    
-    <!--  Règle de navigation pour ajoutMatiere.xhtml -->
-    <navigation-rule>
-    	<from-view-id>/ajoutMatiere.xhtml</from-view-id>
-    	
-    	<!--  1er cas de navigation : vers matiere.xhtml -->
-    	<navigation-case>
-    		<from-outcome>ajouterMatiere</from-outcome>
-    		<to-view-id>/matiere.xhtml</to-view-id>
-    	</navigation-case>
-    
-    
-    
-    
-    </navigation-rule>
-    
-    <!--  Règle de navigation pour promotion.xhtml -->
-    <navigation-rule>
-    	<from-view-id>/promotion.xhtml</from-view-id>
-    	
-    	<!-- 1er cas de navigation : vers ajoutPromotion.xhtml -->
-    	<navigation-case>
-    		<from-outcome>ajoutPromo</from-outcome>
-    		<to-view-id>/ajoutPromo.xhtml</to-view-id>
-    	</navigation-case>
+	<!-- Règle de navigation pour cours.xhtml -->
+	<navigation-rule>
+		<from-view-id>/cours.xhtml</from-view-id>
 
-    </navigation-rule>
-    
-    
-    <!--  Règle de navigation pour ajoutPromo.xhtml -->
-    <navigation-rule>
-    	<from-view-id>/ajoutPromo.xhtml</from-view-id>
-    	
-    	<!-- 1er cas de navigation : vers promotion.xhtml -->
-    	<navigation-case>
-    		<from-outcome>addPromo</from-outcome>
-    		<to-view-id>/promotion.xhtml</to-view-id>
-    	</navigation-case>
-    
-    
-    
-    
-    </navigation-rule>
-    
-    <!-- Règle de navigation pour listeAdmin.xhtml -->
-    <navigation-rule>
-    	<from-view-id>/listeAdmin.xhtml</from-view-id>
-    	
-    	<!-- 1er cas de navigation : vers ajoutAdmin.xhtml -->
-    	<navigation-case>
-    		<from-outcome>addAdmin</from-outcome>
-    		<to-view-id>/ajoutAdmin.xhtml</to-view-id>
-    	</navigation-case>
-    
-    
-    </navigation-rule>
-    
-    <!-- Règle de navigation pour ajoutAdmin.xhtml -->
-    <navigation-rule>
-    	<from-view-id>/ajoutAdmin.xhtml</from-view-id>
-    	
-    	<!-- 1er cas de navigation : vers listeAdmin.xhtml -->
-    	<navigation-case>
-    	
-    		<from-outcome>ajoutAdmin</from-outcome>
-    		<to-view-id>listeAdmin.xhtml</to-view-id>
-    	</navigation-case>
-    
-    
-    </navigation-rule>
-     
-     
-     
-     <navigation-rule>
-     <from-view-id>/Administrateur.xhtml</from-view-id>
-    	<navigation-case>
-	<!-- Menu Admnin direction AdminGestionAbsence -->
-	<from-outcome>AdminGestionAbsence</from-outcome>
-	<!--  page de destination -->
-		<to-view-id>/AdminGestionAbsence.xhtml</to-view-id>
-	</navigation-case>
+		<!-- 1er cas de navigation : vers ajoutCours.xhtml -->
+		<navigation-case>
+			<!-- clé d'outcom (attribut action dans cours.xhtml) -->
+			<from-outcome>addCours</from-outcome>
+
+			<!-- page de destination -->
+			<to-view-id>/ajoutCours.xhtml</to-view-id>
+		</navigation-case>
+
 	</navigation-rule>
+
+	<!-- Règle de navigation pour ajoutCours.xhtml -->
+	<navigation-rule>
+		<from-view-id>/ajoutCours.xhtml</from-view-id>
+
+		<!-- 1er cas de navigation : vers cours.xhtml -->
+		<navigation-case>
+			<from-outcome>ajoutCours</from-outcome>
+			<to-view-id>/cours.xhtml</to-view-id>
+		</navigation-case>
+
+
+
+	</navigation-rule>
+
+
+	<!-- Règle de navigation pour matiere.xhtml -->
+	<navigation-rule>
+		<from-view-id>/matiere.xhtml</from-view-id>
+
+		<!-- 1er cas de navigation : vers ajoutMatiere.xhtml -->
+		<navigation-case>
+			<from-outcome>addMatiere</from-outcome>
+			<to-view-id>/ajoutMatiere.xhtml</to-view-id>
+		</navigation-case>
+
+	</navigation-rule>
+
+
+	<!-- Règle de navigation pour ajoutMatiere.xhtml -->
+	<navigation-rule>
+		<from-view-id>/ajoutMatiere.xhtml</from-view-id>
+
+		<!-- 1er cas de navigation : vers matiere.xhtml -->
+		<navigation-case>
+			<from-outcome>ajouterMatiere</from-outcome>
+			<to-view-id>/matiere.xhtml</to-view-id>
+		</navigation-case>
+
+
+
+
+	</navigation-rule>
+
+	<!-- Règle de navigation pour promotion.xhtml -->
+	<navigation-rule>
+		<from-view-id>/promotion.xhtml</from-view-id>
+
+		<!-- 1er cas de navigation : vers ajoutPromotion.xhtml -->
+		<navigation-case>
+			<from-outcome>ajoutPromo</from-outcome>
+			<to-view-id>/ajoutPromo.xhtml</to-view-id>
+		</navigation-case>
+
+	</navigation-rule>
+
+
+	<!-- Règle de navigation pour ajoutPromo.xhtml -->
+	<navigation-rule>
+		<from-view-id>/ajoutPromo.xhtml</from-view-id>
+
+		<!-- 1er cas de navigation : vers promotion.xhtml -->
+		<navigation-case>
+			<from-outcome>addPromo</from-outcome>
+			<to-view-id>/promotion.xhtml</to-view-id>
+		</navigation-case>
+
+
+
+
+	</navigation-rule>
+
+	<!-- Règle de navigation pour listeAdmin.xhtml -->
+	<navigation-rule>
+		<from-view-id>/listeAdmin.xhtml</from-view-id>
+
+		<!-- 1er cas de navigation : vers ajoutAdmin.xhtml -->
+		<navigation-case>
+			<from-outcome>addAdmin</from-outcome>
+			<to-view-id>/ajoutAdmin.xhtml</to-view-id>
+		</navigation-case>
+
+
+	</navigation-rule>
+
+	<!-- Règle de navigation pour ajoutAdmin.xhtml -->
+	<navigation-rule>
+		<from-view-id>/ajoutAdmin.xhtml</from-view-id>
+
+		<!-- 1er cas de navigation : vers listeAdmin.xhtml -->
+		<navigation-case>
+
+			<from-outcome>ajoutAdmin</from-outcome>
+			<to-view-id>listeAdmin.xhtml</to-view-id>
+		</navigation-case>
+
+
+	</navigation-rule>
+
+
+	<!-- Règle de navigation pour Administrateur.xhtml -->
+	<navigation-rule>
+		<from-view-id>/Administrateur.xhtml</from-view-id>
+		<navigation-case>
+			<!-- Menu Admnin direction AdminGestionAbsence -->
+			<from-outcome>AdminGestionAbsence</from-outcome>
+			<!-- page de destination -->
+			<to-view-id>/AdminGestionAbsence.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+	<!-- Règle de navigation pour listeEtudiant.xhtml -->
+	<navigation-rule>
+		<from-view-id>/listeEtudiant.xhtml</from-view-id>
+
+		<!-- 1er cas de navigation : vers modifEtudiant.xhtml -->
+		<navigation-case>
+			<from-outcome>modifEtudiant</from-outcome>
+			<to-view-id>/modifEtudiant.xhtml</to-view-id>
+		</navigation-case>
+
+		<!-- 2ème cas de navigation : vers ajoutEtudiant.xhtml -->
+		<navigation-case>
+			<from-outcome>addEtudiant</from-outcome>
+			<to-view-id>/ajoutEtudiant.xhtml</to-view-id>
+		</navigation-case>
+
+
+	</navigation-rule>
+	
+	<!-- Règle de navigation pour modifEtudiant.xhtml -->
+	<navigation-rule>
+		<from-view-id>/modifEtudiant.xhtml</from-view-id>
+
+		<!-- 1er cas de navigation : vers listeEtudiant.xhtml -->
+		<navigation-case>
+			<from-outcome>listEtudiant</from-outcome>
+			<to-view-id>/listeEtudiant.xhtml</to-view-id>
+		</navigation-case>
+
+		
+
+	</navigation-rule>
+	
+	
+	<!-- Règle de navigation pour ajoutEtudiant.xhtml -->
+	<navigation-rule>
+		<from-view-id>/ajoutEtudiant.xhtml</from-view-id>
+
+		<!-- 1er cas de navigation : vers listeEtudiant.xhtml -->
+		<navigation-case>
+			<from-outcome>ajoutEtudiant</from-outcome>
+			<to-view-id>/listeEtudiant.xhtml</to-view-id>
+		</navigation-case>
+
+		
+
+	</navigation-rule>
+	
+	
+	<!-- Règle de navigation pour listeEnseignant.xhtml -->
+	<navigation-rule>
+		<from-view-id>/listeEnseignant.xhtml</from-view-id>
+
+		<!-- 1er cas de navigation : vers ajoutEnseignant.xhtml -->
+		<navigation-case>
+			<from-outcome>addEnseignant</from-outcome>
+			<to-view-id>/ajoutEnseignant.xhtml</to-view-id>
+		</navigation-case>
+
+
+	</navigation-rule>
+	
+	
+	<!-- Règle de navigation pour ajoutEnseignant.xhtml -->
+	<navigation-rule>
+		<from-view-id>/ajoutEnseignant.xhtml</from-view-id>
+
+		<!-- 1er cas de navigation : vers ajoutEnseignant.xhtml -->
+		<navigation-case>
+			<from-outcome>ajoutEnseignant</from-outcome>
+			<to-view-id>/listeEnseignant.xhtml</to-view-id>
+		</navigation-case>
+
+
+	</navigation-rule>
+	
+
 </faces-config>

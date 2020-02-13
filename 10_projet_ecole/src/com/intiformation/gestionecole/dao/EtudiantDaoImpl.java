@@ -100,6 +100,27 @@ try {
 			System.out.println("La modification a échoué");
 		}
 	}
+	
+	public void update(Etudiant pEtudiant) {
+		try {
+			EntityTransaction tx = entityManager.getTransaction();
+			tx.begin();
+			Etudiant etudiantModif = entityManager.find(Etudiant.class, pEtudiant.getIdentifiant());
+			
+			etudiantModif.setMotDePasse(pEtudiant.getMotDePasse());
+			etudiantModif.setNom(pEtudiant.getNom());
+			etudiantModif.setPrenom(pEtudiant.getPrenom());
+			etudiantModif.setEmail(pEtudiant.getEmail());
+			etudiantModif.setDateDeNaissance(pEtudiant.getDateDeNaissance());
+			entityManager.merge(etudiantModif);
+			
+			tx.commit();
+			
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+			System.out.println("La modification a échoué");
+		}
+	}
 
 	@Override
 	public void delete(int pidEtudiant) {
