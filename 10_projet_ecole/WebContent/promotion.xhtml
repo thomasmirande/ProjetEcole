@@ -19,7 +19,7 @@
 	<h:form>
 	<!--  Affichage de la liste de cours de la bdd avec le composant h:dataTable -->
 	
-	<h:dataTable value="#{gestionPromotionBean.findAllPromo()}" var="promotion" border="1">
+	<h:dataTable value="#{gestionPromotionBean.findAllPromo}" var="promotion" border="1">
 	
 		<!--  colonne identifiant -->
 		<h:column>
@@ -65,7 +65,7 @@
 				<h:outputText value="Supprimer" />
 			</f:facet>
 			
-			<h:commandButton action="supPromo" value="Supprimer" actionListener="#{gestionPromotionBean.supprimerPromo()}"/>
+			<h:commandButton action="supPromo" value="Supprimer" actionListener="#{gestionPromotionBean.supprimerPromo}"/>
 			<f:param id="deleteId" name="id" value="#{promotion.idPromotion}"></f:param>
 			
 		</h:column>
@@ -73,7 +73,7 @@
 	
 	</h:dataTable>
 	
-	<h:commandButton action="ajoutPromo" value="Ajouter" actionListener="#{gestionPromotionBean.initialiserPromo()}"/>
+	<h:commandButton action="ajoutPromo" value="Ajouter" actionListener="#{gestionPromotionBean.initialiserPromo}"/>
 	
 	
 	</h:form>

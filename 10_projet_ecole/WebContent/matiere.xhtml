@@ -18,7 +18,7 @@
 	<h:form>
 	<!--  Affichage de la liste de cours de la bdd avec le composant h:dataTable -->
 	
-	<h:dataTable value="#{gestionMatiereBean.findAllMatiereBdd()}" var="matiere" border="1">
+	<h:dataTable value="#{gestionMatiereBean.findAllMatiereBdd}" var="matiere" border="1">
 	
 		<!--  colonne identifiant -->
 		<h:column>
@@ -67,7 +67,7 @@
 				<h:outputText value="Supprimer" />
 			</f:facet>
 			
-			<h:commandButton action="supMatiere" value="Supprimer" actionListener="#{gestionMatiereBean.supprimerMatiere()}"/>
+			<h:commandButton action="supMatiere" value="Supprimer" actionListener="#{gestionMatiereBean.supprimerMatiere}"/>
 			<f:param id="deleteId" name="id" value="#{matiere.idMatiere}"></f:param>
 			
 		</h:column>
@@ -75,7 +75,7 @@
 	
 	</h:dataTable>
 	
-	<h:commandButton action="addMatiere" value="Ajouter" actionListener="#{gestionMatiereBean.initialiserMatiere()}" />
+	<h:commandButton action="addMatiere" value="Ajouter" actionListener="#{gestionMatiereBean.initialiserMatiere}" />
 	
 	
 	</h:form>
