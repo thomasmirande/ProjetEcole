@@ -79,6 +79,18 @@ public class GestionEnseignantBean implements Serializable {
 		enseignantDao.add(enseignant);
 	}
 	
+	public void chargerInfoEnseignant(ActionEvent event) {
+		UIParameter component = (UIParameter) event.getComponent().findComponent("modifId");
+		int idModif = (int) component.getValue();
+		Enseignant enseignantModif = enseignantDao.getById(idModif);
+		setEnseignant(enseignantModif);;
+	}
+	
+	public void modifierEnseignant(ActionEvent event) {
+		enseignantDao.update(enseignant);;
+		
+	}
+	
 	
 	/*-------------------Guetter/Setter-------------------------------------------*/
 	

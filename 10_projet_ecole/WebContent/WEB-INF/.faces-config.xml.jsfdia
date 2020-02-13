@@ -126,6 +126,9 @@
    <PROCESS-ITEM-OUTPUT ID="addEnseignant::#ajoutEnseignant.xhtml"
     NAME="output" PATH="/ajoutEnseignant.xhtml"
     TARGET="rules:#ajoutEnseignant.xhtml" TITLE="addEnseignant" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="modifAdmin::#modifEnseignant.xhtml"
+    NAME="output1" PATH="/modifEnseignant.xhtml"
+    TARGET="rules:#modifEnseignant.xhtml" TITLE="modifAdmin" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ajoutEnseignant.xhtml"
@@ -144,6 +147,15 @@
    <PROCESS-ITEM-OUTPUT ID="listAdmin::listeAdmin.xhtml" NAME="output"
     PATH="listeAdmin.xhtml" TARGET="rules:listeAdmin.xhtml"
     TITLE="listAdmin" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#modifEnseignant.xhtml"
+  PATH="/modifEnseignant.xhtml" SHAPE="48,1121,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#modifEnseignant.xhtml:0" NAME="item"
+   PATH="/modifEnseignant.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listEnseignant::#listeEnseignant.xhtml"
+    NAME="output" PATH="/listeEnseignant.xhtml"
+    TARGET="rules:#listeEnseignant.xhtml" TITLE="listEnseignant" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
 </PROCESS>

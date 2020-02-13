@@ -105,6 +105,27 @@ public class EnseignantDaoImpl implements IEnseignantDao {
 		
 	}
 	
+	public void update(Enseignant pEnseignant) {
+		try {
+			EntityTransaction tx = entityManager.getTransaction();
+			tx.begin();
+			Enseignant enseignantModif = entityManager.find(Enseignant.class, pEnseignant.getIdentifiant());
+			
+			enseignantModif.setMotDePasse(pEnseignant.getMotDePasse());
+			enseignantModif.setNom(pEnseignant.getNom());
+			enseignantModif.setPrenom(pEnseignant.getPrenom());
+			enseignantModif.setEmail(pEnseignant.getEmail());
+			entityManager.merge(enseignantModif);
+			
+			tx.commit();
+			
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+			System.out.println("La modification a échoué");
+		}
+		
+	}
+	
 
 	@Override
 	public void delete(int pIdEnseignant) {
