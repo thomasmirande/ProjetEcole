@@ -19,7 +19,7 @@
 	<h:form>
 	<!--  Affichage de la liste de cours de la bdd avec le composant h:dataTable -->
 	
-	<h:dataTable value="#{gestionPromotionBean.findAllPromo}" var="promotion" border="1">
+	<h:dataTable value="#{gestionPromotionBean.findAllPromo()}" var="promotion" border="1">
 	
 		<!--  colonne identifiant -->
 		<h:column>
