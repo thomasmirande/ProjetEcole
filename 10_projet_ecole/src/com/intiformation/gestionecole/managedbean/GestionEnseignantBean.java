@@ -83,11 +83,11 @@ public class GestionEnseignantBean implements Serializable {
 		UIParameter component = (UIParameter) event.getComponent().findComponent("modifId");
 		int idModif = (int) component.getValue();
 		Enseignant enseignantModif = enseignantDao.getById(idModif);
-		setEnseignant(enseignantModif);;
+		setEnseignant(enseignantModif);
 	}
 	
 	public void modifierEnseignant(ActionEvent event) {
-		enseignantDao.update(enseignant);;
+		enseignantDao.update(enseignant);
 		
 	}
 	
