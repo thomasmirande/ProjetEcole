@@ -71,6 +71,17 @@ public class Etudiant extends Personne implements Serializable {
 		this.photo = photo;
 		this.dateDeNaissance = dateDeNaissance;
 	}
+	
+	public Etudiant(String motDePasse, String nom, String prenom, String email, boolean photo, String dateDeNaissance, Adresse adresse) {
+		super(motDePasse, nom, prenom, email, adresse);
+		this.setMotDePasse(motDePasse);
+		this.setNom(nom);
+		this.setPrenom(prenom);
+		this.setEmail(email);
+		this.photo = photo;
+		this.dateDeNaissance = dateDeNaissance;
+		this.setAdresse(adresse);
+	}
 
 	/*-------------------Getters & Setter-----------------------------------*/
 

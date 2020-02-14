@@ -72,6 +72,8 @@ public class GestionEnseignantBean implements Serializable {
 	
 	public void initialiserEnseignant(ActionEvent event) {
 		Enseignant enseignantAjout = new Enseignant();
+		Adresse adresseAjout = new Adresse();
+		enseignantAjout.setAdresse(adresseAjout);
 		setEnseignant(enseignantAjout);
 	}
 	

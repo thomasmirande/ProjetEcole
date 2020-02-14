@@ -90,6 +90,8 @@ public class GestionAdministrateurBean implements Serializable{
 	 */
 	public void initialiserAdmin(ActionEvent event) {
 		Administrateur adminAjout = new Administrateur();
+		Adresse adresseAjout = new Adresse();
+		adminAjout.setAdresse(adresseAjout);
 		setAdmin(adminAjout);
 	}
 	

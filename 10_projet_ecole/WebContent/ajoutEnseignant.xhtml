@@ -29,6 +29,15 @@
 			<h:outputLabel value="Mot de passe" />
 			<h:inputText value="#{gestionEnseignantBean.enseignant.motDePasse}" />
 			
+			<h:outputLabel value="Adresse : Rue" />
+			<h:inputText value="#{gestionEnseignantBean.enseignant.adresse.rue}" />
+			
+			<h:outputLabel value="Adresse : Code Postal" />
+			<h:inputText value="#{gestionEnseignantBean.enseignant.adresse.codePostal}" />
+			
+			<h:outputLabel value="Adresse : ville" />
+			<h:inputText value="#{gestionEnseignantBean.enseignant.adresse.ville}" />
+			
 			<f:facet name="footer">
 				<h:commandButton action="ajoutEnseignant" value="Ajouter" actionListener="#{gestionEnseignantBean.ajouterEnseignant}"/>
 			</f:facet>

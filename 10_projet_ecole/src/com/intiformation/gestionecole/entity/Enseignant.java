@@ -52,6 +52,16 @@ public class Enseignant extends Personne implements Serializable {
 		this.setMotDePasse(motDePasse);
 		this.setEmail(email);
 	}
+	
+	public Enseignant(String motDePasse, String nom, String prenom, String email, Adresse adresse) {
+		super(motDePasse, nom, prenom, email, adresse);
+		this.setMotDePasse(motDePasse);
+		this.setNom(nom);
+		this.setPrenom(prenom);
+		this.setEmail(email);
+		this.setAdresse(adresse);
+	
+	}
 
 	/*-------------------Getters & Setter-----------------------------------*/
 

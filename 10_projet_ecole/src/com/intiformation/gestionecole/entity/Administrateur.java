@@ -44,7 +44,11 @@ public class Administrateur extends Personne implements Serializable {
 
 	public Administrateur(String motDePasse, String nom, String prenom, String email, Adresse adresse) {
 		super(motDePasse, nom, prenom, email, adresse);
-		// TODO Auto-generated constructor stub
+		this.setMotDePasse(motDePasse);
+		this.setNom(nom);
+		this.setPrenom(prenom);
+		this.setEmail(email);
+		this.setAdresse(adresse);
 	}
 
 	

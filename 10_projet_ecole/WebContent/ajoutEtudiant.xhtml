@@ -35,6 +35,15 @@
 			<h:outputLabel value="Date de naissance" />
 			<h:inputText value="#{gestionEtudiantBean.etudiant.dateDeNaissance}" />
 			
+			<h:outputLabel value="Adresse : Rue" />
+			<h:inputText value="#{gestionEtudiantBean.etudiant.adresse.rue}" />
+			
+			<h:outputLabel value="Adresse : Code Postal" />
+			<h:inputText value="#{gestionEtudiantBean.etudiant.adresse.codePostal}" />
+			
+			<h:outputLabel value="Adresse : ville" />
+			<h:inputText value="#{gestionEtudiantBean.etudiant.adresse.ville}" />
+			
 			<f:facet name="footer">
 				<h:commandButton action="ajoutEtudiant" value="Ajouter" actionListener="#{gestionEtudiantBean.ajouterEtudiant}"/>
 			</f:facet>
