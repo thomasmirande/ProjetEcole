@@ -2,15 +2,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
 	<title>Authentification</title>
 </h:head> 
-<h:body> 
-	
-	<h:form>
-		<h:panelGrid columns="3" cellpadding="1" cellspacing="2">
+<h:body style ="text-align-last: center;
+    background-color: darkcyan;"> 
+
+	<h2 style=" text-decoration: blink;">Bienvenue au sein de notre plateforme d'échange</h2>
+	<h:form style =" position:absolute;
+   top:50%;
+   left:50%;
+   width:300px; 
+   height:200px; 
+   margin-left:-150px; 
+   margin-top:-100px; 
+  
+   ">
+		<p:panelGrid columns="3" cellpadding="1" cellspacing="2">
 			<f:facet name="header">
 				<h:outputText value="Formulaire de connexion" />
 			</f:facet>
@@ -33,7 +44,7 @@
 		
 		
 		
-		</h:panelGrid>
+		</p:panelGrid>
 	
 	<h:link value="index" outcome="index.xhtml"/>
 
