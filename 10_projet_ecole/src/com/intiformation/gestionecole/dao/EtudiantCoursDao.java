@@ -21,6 +21,9 @@ public class EtudiantCoursDao implements IEtudiantCoursDao{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
+	
 
 	@Override
 	public EtudiantCours getById(int id) {
