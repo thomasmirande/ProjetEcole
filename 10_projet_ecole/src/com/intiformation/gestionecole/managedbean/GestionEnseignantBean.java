@@ -36,6 +36,7 @@ public class GestionEnseignantBean implements Serializable {
 
 	public GestionEnseignantBean() {
 		enseignantDao = new EnseignantDaoImpl();
+		adresseDao = new AdresseDao();
 	
 	}//end ctor vide
 
@@ -73,7 +74,7 @@ public class GestionEnseignantBean implements Serializable {
 	public void initialiserEnseignant(ActionEvent event) {
 		Enseignant enseignantAjout = new Enseignant();
 		Adresse adresseAjout = new Adresse();
-		enseignantAjout.setAdresse(adresseAjout);
+		setAdresse(adresseAjout);
 		setEnseignant(enseignantAjout);
 	}
 	
@@ -85,6 +86,10 @@ public class GestionEnseignantBean implements Serializable {
 		UIParameter component = (UIParameter) event.getComponent().findComponent("modifId");
 		int idModif = (int) component.getValue();
 		Enseignant enseignantModif = enseignantDao.getById(idModif);
+		
+		//Adresse adresseModif = adresseDao.getById(enseignant.getAdresse().getIdAdresse());
+	//	setAdresse(adresseModif);
+
 		setEnseignant(enseignantModif);
 	}
 	

@@ -63,6 +63,14 @@ public class Enseignant extends Personne implements Serializable {
 	
 	}
 
-	/*-------------------Getters & Setter-----------------------------------*/
+	
 
+	/*-------------------Getters & Setter-----------------------------------*/
+	public List<Enseigne> getListeEnseigne() {
+		return listeEnseigne;
+	}
+
+	public void setListeEnseigne(List<Enseigne> listeEnseigne) {
+		this.listeEnseigne = listeEnseigne;
+	}
 }

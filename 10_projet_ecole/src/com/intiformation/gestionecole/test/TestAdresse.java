@@ -6,6 +6,7 @@ import com.intiformation.gestionecole.dao.EnseignantDaoImpl;
 import com.intiformation.gestionecole.dao.EtudiantDaoImpl;
 import com.intiformation.gestionecole.entity.Administrateur;
 import com.intiformation.gestionecole.entity.Adresse;
+import com.intiformation.gestionecole.entity.Enseignant;
 
 public class TestAdresse {
 
@@ -24,6 +25,8 @@ public class TestAdresse {
 		adresseDao.add(adresse1);
 		
 		adresseDao.attribuerAdresse(admin, adresse1);
+		
+		
 
 	}
 

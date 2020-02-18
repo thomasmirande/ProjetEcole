@@ -9,9 +9,10 @@
 	<title>Ajout d'un enseignant</title>
 </h:head> 
 <h:body> 
-<h:form>
 <ui:decorate template="/templates/header.xhtml"></ui:decorate>		
-		<p:panelGrid columns="2" border="1">
+<h:form>
+
+		<h:panelGrid columns="2" border="1">
 		
 			<f:facet name="header">
 				<h:outputText value="Formulaire d'ajout d'un nouvel enseignant" />
@@ -42,7 +43,7 @@
 				<h:commandButton action="ajoutEnseignant" value="Ajouter" actionListener="#{gestionEnseignantBean.ajouterEnseignant}"/>
 			</f:facet>
 	
-		</p:panelGrid>
+		</h:panelGrid>
 
 	</h:form>
 </h:body> 

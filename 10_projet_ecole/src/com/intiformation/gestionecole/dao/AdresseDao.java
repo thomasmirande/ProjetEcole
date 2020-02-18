@@ -13,6 +13,7 @@ import javax.persistence.criteria.Root;
 import com.intiformation.gestionecole.entity.Administrateur;
 import com.intiformation.gestionecole.entity.Adresse;
 import com.intiformation.gestionecole.entity.Cours;
+import com.intiformation.gestionecole.entity.Enseignant;
 import com.intiformation.gestionecole.entity.Matiere;
 import com.intiformation.gestionecole.tool.JpaUtil;
 
@@ -127,6 +128,31 @@ public class AdresseDao implements IGestion<Adresse>{
 			Adresse adresseAttribution = entityManager.find(Adresse.class, idAdresse);
 			
 			adminAttribution.setAdresse(adresseAttribution);
+			
+			tx.commit();
+
+			
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+			System.out.println("L'attribution du cours a échoué");
+		}
+		
+	}// end attribuerMatiere
+	
+	
+	public void attribuerAdresseEnseignant(Enseignant pEnseignant, Adresse pAdresse) {
+		try {
+			
+			EntityTransaction tx = entityManager.getTransaction();
+			tx.begin();
+			
+			int idenseignant = pEnseignant.getIdentifiant();
+			int idAdresse = pAdresse.getIdAdresse();
+			
+			Enseignant ensAttribution = entityManager.find(Enseignant.class, idenseignant);
+			Adresse adresseAttribution = entityManager.find(Adresse.class, idAdresse);
+			
+			ensAttribution.setAdresse(adresseAttribution);
 			
 			tx.commit();
 

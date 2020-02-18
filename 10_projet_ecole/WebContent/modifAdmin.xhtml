@@ -31,6 +31,15 @@
 			<h:outputLabel value="Mot de passe" />
 			<h:inputText value="#{gestionAdminBean.admin.motDePasse}" />
 			
+			<h:outputLabel value="Adresse : rue" />
+			<h:inputText value="#{gestionAdminBean.admin.adresse.rue}" />
+			
+			<h:outputLabel value="Adresse : code postal" />
+			<h:inputText value="#{gestionAdminBean.admin.adresse.codePostal}" />
+			
+			<h:outputLabel value="Adresse : ville" />
+			<h:inputText value="#{gestionAdminBean.admin.adresse.ville}" />
+			
 			<f:facet name="footer">
 				<h:commandButton action="listAdmin" value="Modifier" actionListener="#{gestionAdminBean.modifierAdmin}"/>
 			</f:facet>

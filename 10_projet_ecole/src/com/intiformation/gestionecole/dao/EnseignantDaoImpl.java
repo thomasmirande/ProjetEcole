@@ -115,6 +115,7 @@ public class EnseignantDaoImpl implements IEnseignantDao {
 			enseignantModif.setNom(pEnseignant.getNom());
 			enseignantModif.setPrenom(pEnseignant.getPrenom());
 			enseignantModif.setEmail(pEnseignant.getEmail());
+			enseignantModif.setAdresse(pEnseignant.getAdresse());
 			entityManager.merge(enseignantModif);
 			
 			tx.commit();
