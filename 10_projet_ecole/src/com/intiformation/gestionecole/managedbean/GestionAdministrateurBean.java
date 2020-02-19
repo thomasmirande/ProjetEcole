@@ -41,6 +41,7 @@ public class GestionAdministrateurBean implements Serializable{
 
 	public GestionAdministrateurBean() {
 		adminDao = new AdministrateurDaoImpl();
+		adresseDao = new AdresseDao();
 	}
 
 
@@ -103,7 +104,7 @@ public class GestionAdministrateurBean implements Serializable{
 		UIParameter component = (UIParameter) event.getComponent().findComponent("modifId");
 		int idModif = (int) component.getValue();
 		Administrateur adminModif = adminDao.getById(idModif);
-		setAdmin(adminModif);;
+		setAdmin(adminModif);
 	}
 	
 	public void modifierAdmin(ActionEvent event) {
@@ -131,6 +132,54 @@ public class GestionAdministrateurBean implements Serializable{
 
 	public void setAdmin(Administrateur admin) {
 		this.admin = admin;
+	}
+
+
+
+
+
+	public AdministrateurDaoImpl getAdminDao() {
+		return adminDao;
+	}
+
+
+
+
+
+	public void setAdminDao(AdministrateurDaoImpl adminDao) {
+		this.adminDao = adminDao;
+	}
+
+
+
+
+
+	public AdresseDao getAdresseDao() {
+		return adresseDao;
+	}
+
+
+
+
+
+	public void setAdresseDao(AdresseDao adresseDao) {
+		this.adresseDao = adresseDao;
+	}
+
+
+
+
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+
+
+
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 	
 }
