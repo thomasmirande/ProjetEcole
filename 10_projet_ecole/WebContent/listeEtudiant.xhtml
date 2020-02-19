@@ -2,19 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<title>Gestion des étudiants</title>
 </h:head>
-<h:body>
+<h:body style ="background-color: lavender;">
 <ui:decorate template="/templates/header.xhtml"></ui:decorate>
+<br/><br/><br/>
+<h1>Chère Administrateur, Voici la liste des étudiants.</h1>
 	<h:form>
 
-	<h:dataTable value="#{gestionEtudiantBean.findAllEtudiantBdd()}"
+	<p:dataTable value="#{gestionEtudiantBean.findAllEtudiantBdd()}"
 		var="etudiant" border="1">
 
-		<h:column>
+		<p:column>
 
 			<f:facet name="header">
 				<h:outputText value="Photo" />
@@ -23,68 +26,68 @@
 			<h:outputText value="#{etudiant.photo}" />
 
 
-		</h:column>
+		</p:column>
 
-		<h:column>
+		<p:column>
 
 			<f:facet name="header">
 				<h:outputText value="Identifiant" />
 			</f:facet>
 
 			<h:outputText value="#{etudiant.identifiant}" />
-		</h:column>
+		</p:column>
 
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Nom" />
 			</f:facet>
 
 			<h:outputText value="#{etudiant.nom}" />
-		</h:column>
+		</p:column>
 
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Prénom" />
 			</f:facet>
 
 			<h:outputText value="#{etudiant.prenom}" />
-		</h:column>
+		</p:column>
 
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Email" />
 			</f:facet>
 
 			<h:outputText value="#{etudiant.email}" />
-		</h:column>
+		</p:column>
 
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Mot de passe" />
 			</f:facet>
 
 			<h:outputText value="#{etudiant.motDePasse}" />
-		</h:column>
+		</p:column>
 
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Date de naissance" />
 			</f:facet>
 
 			<h:outputText value="#{etudiant.dateDeNaissance}" />
-		</h:column>
+		</p:column>
 
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Adresse" />
 			</f:facet>
 
 			<h:outputText
 				value="#{etudiant.adresse.rue} #{etudiant.adresse.codePostal} #{etudiant.adresse.ville}" />
-		</h:column>
+		</p:column>
 
 
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Modifier" />
 			</f:facet>
@@ -92,21 +95,21 @@
 			<h:commandButton action="modifEtudiant" value="Modifier" actionListener="#{gestionEtudiantBean.chargerInfoEtudiant}"/>
 			<f:param id="modifId" name="id" value="#{etudiant.identifiant}"></f:param>
 
-		</h:column>
+		</p:column>
 
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Supprimer" />
 			</f:facet>
 
-			<h:commandButton value="Supprimer"
+			<p:commandButton value="Supprimer"
 				actionListener="#{gestionEtudiantBean.supprimerEtudiant}" />
 			<f:param id="deleteId" name="id" value="#{etudiant.identifiant}"></f:param>
 
-		</h:column>
-	</h:dataTable>
+		</p:column>
+	</p:dataTable>
 
-	<h:commandButton action="addEtudiant" value="Ajouter"
+	<p:commandButton action="addEtudiant" value="Ajouter"
 		actionListener="#{gestionEtudiantBean.initialiserEtudiant}" />
 
 

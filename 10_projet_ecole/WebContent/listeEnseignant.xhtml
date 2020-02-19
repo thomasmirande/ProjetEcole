@@ -2,91 +2,94 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
 	<title>Gestion des enseignants</title>
 </h:head> 
-<h:body> 
+<h:body style ="background-color: lavender;"> 
 <ui:decorate template="/templates/header.xhtml"></ui:decorate>
+<br/><br/><br/>
+<h1>Chère Administrateur, Voici la liste des enseignants.</h1>
 <h:form>
 
-	<h:dataTable value="#{gestionEnseignantBean.findAllEnseignantBdd()}"
+	<p:dataTable value="#{gestionEnseignantBean.findAllEnseignantBdd()}"
 		var="enseignant" border="1">
 
-		<h:column>
+		<p:column>
 
 			<f:facet name="header">
 				<h:outputText value="Identifiant" />
 			</f:facet>
 
 			<h:outputText value="#{enseignant.identifiant}" />
-		</h:column>
+		</p:column>
 
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Nom" />
 			</f:facet>
 
 			<h:outputText value="#{enseignant.nom}" />
-		</h:column>
+		</p:column>
 
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Prénom" />
 			</f:facet>
 
 			<h:outputText value="#{enseignant.prenom}" />
-		</h:column>
+		</p:column>
 
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Email" />
 			</f:facet>
 
 			<h:outputText value="#{enseignant.email}" />
-		</h:column>
+		</p:column>
 
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Mot de passe" />
 			</f:facet>
 
 			<h:outputText value="#{enseignant.motDePasse}" />
-		</h:column>
+		</p:column>
 
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Adresse" />
 			</f:facet>
 
 			<h:outputText
 				value="#{enseignant.adresse.rue} #{enseignant.adresse.codePostal} #{enseignant.adresse.ville}" />
-		</h:column>
+		</p:column>
 
 
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Modifier" />
 			</f:facet>
 			
-			<h:commandButton action="modifAdmin" value="Modifier" actionListener="#{gestionEnseignantBean.chargerInfoEnseignant}" />
+			<p:commandButton action="modifAdmin" value="Modifier" actionListener="#{gestionEnseignantBean.chargerInfoEnseignant}" />
 			<f:param id="modifId" name="id" value="#{enseignant.identifiant}"></f:param>
 
-		</h:column>
+		</p:column>
 
-		<h:column>
+		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Supprimer" />
 			</f:facet>
 
-			<h:commandButton value="Supprimer" actionListener="#{gestionEnseignantBean.supprimerEnseignant}" />
+			<p:commandButton value="Supprimer" actionListener="#{gestionEnseignantBean.supprimerEnseignant}" />
 			<f:param id="deleteId" name="id" value="#{enseignant.identifiant}"></f:param>
 
-		</h:column>
-	</h:dataTable>
+		</p:column>
+	</p:dataTable>
 
-	<h:commandButton action="addEnseignant" value="Ajouter"
+	<p:commandButton action="addEnseignant" value="Ajouter"
 		actionListener="#{gestionEnseignantBean.initialiserEnseignant}" />
 
 
