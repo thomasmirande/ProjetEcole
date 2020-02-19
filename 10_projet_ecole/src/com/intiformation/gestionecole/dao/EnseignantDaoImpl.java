@@ -111,11 +111,11 @@ public class EnseignantDaoImpl implements IEnseignantDao {
 			tx.begin();
 			Enseignant enseignantModif = entityManager.find(Enseignant.class, pEnseignant.getIdentifiant());
 			
-			enseignantModif.setMotDePasse(pEnseignant.getMotDePasse());
-			enseignantModif.setNom(pEnseignant.getNom());
-			enseignantModif.setPrenom(pEnseignant.getPrenom());
-			enseignantModif.setEmail(pEnseignant.getEmail());
-			enseignantModif.setAdresse(pEnseignant.getAdresse());
+//			enseignantModif.setMotDePasse(pEnseignant.getMotDePasse());
+//			enseignantModif.setNom(pEnseignant.getNom());
+//			enseignantModif.setPrenom(pEnseignant.getPrenom());
+//			enseignantModif.setEmail(pEnseignant.getEmail());
+//			enseignantModif.setAdresse(pEnseignant.getAdresse());
 			entityManager.merge(enseignantModif);
 			
 			tx.commit();

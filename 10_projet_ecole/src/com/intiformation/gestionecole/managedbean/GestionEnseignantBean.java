@@ -86,6 +86,7 @@ public class GestionEnseignantBean implements Serializable {
 		UIParameter component = (UIParameter) event.getComponent().findComponent("modifId");
 		int idModif = (int) component.getValue();
 		Enseignant enseignantModif = enseignantDao.getById(idModif);
+		System.out.println(enseignantModif);
 		
 		//Adresse adresseModif = adresseDao.getById(enseignant.getAdresse().getIdAdresse());
 	//	setAdresse(adresseModif);

@@ -11,7 +11,7 @@
 
 <h:form>
 		<!-- Recup de l'id du livre dans un champs caché -->
-		<h:inputHidden value="#{gestionEnseignantBean.enseignant.identifiant}" />
+<!-- 		<h:inputHidden value="#{gestionEnseignantBean.enseignant.identifiant}" /> -->
 		
 		<h:panelGrid columns="2" border="1">
 		
@@ -32,13 +32,13 @@
 			<h:inputText value="#{gestionEnseignantBean.enseignant.motDePasse}" />
 			
 			<h:outputLabel value="Adresse : rue" />
-			<h:inputText value="#{gestionEnseignantBean.adresse.rue}" />
+			<h:inputText value="#{gestionEnseignantBean.enseignant.adresse.rue}" />
 			
 			<h:outputLabel value="Adresse : code postal" />
-			<h:inputText value="#{gestionEnseignantBean.adresse.codePostal}" />
+			<h:inputText value="#{gestionEnseignantBean.enseignant.adresse.codePostal}" />
 			
 			<h:outputLabel value="Adresse : ville" />
-			<h:inputText value="#{gestionEnseignantBean.adresse.ville}" />
+			<h:inputText value="#{gestionEnseignantBean.enseignant.adresse.ville}" />
 			
 			<f:facet name="footer">
 				<h:commandButton action="listEnseignant" value="Modifier" actionListener="#{gestionEnseignantBean.modifierEnseignant}"/>
