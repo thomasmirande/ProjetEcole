@@ -6,7 +6,7 @@
       xmlns:p="http://primefaces.org/ui"> 
 
 <h:head></h:head> 
-<h:body> 
+<h:body style ="background-color: lavender;"> 
 <ui:decorate template="/templates/header.xhtml"></ui:decorate>
 
 <h:link value="menu admin" outcome="listeAdmin.xhtml"></h:link>
@@ -14,6 +14,8 @@
 <h:link value="menu gestion etudiant" outcome="listeEtudiant.xhtml"></h:link>
 
 <h:link value="menu gestion enseignant" outcome="listeEnseignant.xhtml"></h:link>
-
+<div style="width: 200%;
+	height: 500px;"></div><ui:decorate template="/templates/footer.xhtml"></ui:decorate>
+<div/>
 </h:body> 
 </html>
